@@ -3,11 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Serenity Psychology</title>
+<title>Serenity Clinic</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* ================= ROOT BRAND ================= */
+:root{
+  --primary:#5b5ef7;
+  --secondary:#22c55e;
+  --dark:#0f172a;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --bg:#f6f8fc;
+}
+
+/* ================= GLOBAL ================= */
 *{
   margin:0;
   padding:0;
@@ -16,37 +28,59 @@
 }
 
 body{
-  background:#f5f7fb;
-  color:#1f2937;
+  background:var(--bg);
+  color:var(--text);
 }
 
-/* ================= HERO ================= */
+/* ================= LOGO ================= */
+.logo{
+  position:absolute;
+  top:25px;
+  left:30px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:white;
+  font-weight:800;
+  z-index:10;
+}
+
+.logo-icon{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  box-shadow:0 0 20px rgba(91,94,247,0.6);
+}
+
+/* ================= HERO (FIXED CLEAR IMAGE) ================= */
 .hero{
   height:92vh;
-  background:url("https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat;
-  position:relative;
+  background:
+    linear-gradient(180deg, rgba(10,15,30,0.55), rgba(10,15,30,0.75)),
+    url("https://images.unsplash.com/photo-1580281657527-47f249e8f1c5?auto=format&fit=crop&w=2400&q=100");
+  
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:white;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(10,15,30,0.65), rgba(10,15,30,0.75));
+  position:relative;
 }
 
 .hero-content{
-  position:relative;
-  max-width:800px;
+  max-width:850px;
 }
 
-/* HERO TITLE */
 .hero h1{
-  font-size:60px;
+  font-size:62px;
   font-weight:800;
   letter-spacing:-1px;
 }
@@ -57,7 +91,7 @@ body{
   opacity:0.9;
 }
 
-/* ================= CTA BUTTON ================= */
+/* ================= GLOW BUTTON ================= */
 .btn{
   margin-top:25px;
   display:inline-block;
@@ -66,22 +100,22 @@ body{
   font-weight:700;
   color:white;
   text-decoration:none;
-  background:linear-gradient(135deg,#6366f1,#22c55e);
-  box-shadow:0 0 25px rgba(99,102,241,0.6);
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  box-shadow:0 0 25px rgba(91,94,247,0.6);
   transition:0.3s;
 }
 
 .btn:hover{
   transform:translateY(-4px) scale(1.05);
-  box-shadow:0 0 40px rgba(99,102,241,0.9);
+  box-shadow:0 0 40px rgba(91,94,247,0.9);
 }
 
 /* ================= STATS ================= */
 .stats{
   margin-top:35px;
   display:flex;
-  justify-content:center;
   gap:20px;
+  justify-content:center;
   flex-wrap:wrap;
 }
 
@@ -95,7 +129,7 @@ body{
 
 .stat h2{
   font-size:22px;
-  color:#fff;
+  color:white;
 }
 
 .stat p{
@@ -136,7 +170,6 @@ body{
   transform:translateY(-6px);
 }
 
-/* ================= IMAGES ================= */
 .card img{
   width:100%;
   height:260px;
@@ -144,36 +177,61 @@ body{
   border-radius:14px;
 }
 
-/* ================= TEXT ================= */
 .small{
   font-size:13px;
-  color:#6b7280;
+  color:var(--muted);
   margin-top:5px;
+}
+
+/* ================= CONTACT BUTTON ================= */
+.contact-btn{
+  margin-top:15px;
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:12px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.contact-btn:hover{
+  transform:translateY(-3px);
 }
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:768px){
   .hero h1{font-size:38px;}
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= LOGO ================= -->
+<div class="logo">
+  <div class="logo-icon">◈</div>
+  Serenity Clinic
+</div>
+
 <!-- ================= HERO ================= -->
 <header class="hero">
+
   <div class="hero-content">
 
     <h1>Find Inner Peace</h1>
-    <p>Professional psychology support for emotional balance, clarity, and healing.</p>
+    <p>Clinical psychology support for emotional balance, healing, and long-term mental clarity.</p>
 
     <a href="#contact" class="btn">Book Session</a>
 
-    <!-- ================= STATS ================= -->
+    <!-- STATS -->
     <div class="stats">
+
       <div class="stat">
         <h2>12,500+</h2>
-        <p>Clients helped</p>
+        <p>Clients served</p>
       </div>
 
       <div class="stat">
@@ -182,9 +240,10 @@ body{
       </div>
 
       <div class="stat">
-        <h2>18 yrs</h2>
-        <p>Center experience</p>
+        <h2>18 Years</h2>
+        <p>Clinic experience</p>
       </div>
+
     </div>
 
   </div>
@@ -192,11 +251,11 @@ body{
 
 <!-- ================= ABOUT ================= -->
 <section class="section">
-  <h2>About Our Center</h2>
-  <p style="max-width:900px;margin:auto;text-align:center;color:#6b7280;line-height:1.8;">
-    Our psychology center is dedicated to helping people overcome stress, anxiety, trauma, and emotional imbalance.  
-    We combine modern clinical psychology with mindfulness-based techniques to create long-term healing.  
-    Over the years, we have built a trusted environment where thousands of clients have found stability, confidence, and emotional clarity.
+  <h2>About Our Clinic</h2>
+
+  <p style="max-width:900px;margin:auto;text-align:center;color:var(--muted);line-height:1.8;">
+    Serenity Clinic is a modern psychological care center focused on emotional healing, anxiety treatment, trauma recovery, and personal growth.  
+    We combine clinical expertise with mindfulness-based therapy to provide long-term mental wellness solutions in a safe, confidential environment.
   </p>
 </section>
 
@@ -210,7 +269,7 @@ body{
       <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2"/>
       <h3>Dr. Sarah Mitchell</h3>
       <p class="small">Clinical Psychologist</p>
-      <p class="small">Experience: 12 years</p>
+      <p class="small">12 years experience</p>
       <p class="small">Mon–Thu 10:00–18:00</p>
     </div>
 
@@ -218,7 +277,7 @@ body{
       <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"/>
       <h3>Dr. James Carter</h3>
       <p class="small">CBT Specialist</p>
-      <p class="small">Experience: 9 years</p>
+      <p class="small">9 years experience</p>
       <p class="small">Mon–Fri 09:00–17:00</p>
     </div>
 
@@ -226,7 +285,7 @@ body{
       <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f"/>
       <h3>Dr. Emily Brown</h3>
       <p class="small">Mindfulness Expert</p>
-      <p class="small">Experience: 8 years</p>
+      <p class="small">8 years experience</p>
       <p class="small">Tue–Sat 11:00–19:00</p>
     </div>
 
@@ -234,7 +293,7 @@ body{
       <img src="https://images.unsplash.com/photo-1542190891-2093d38760f2"/>
       <h3>Dr. Michael Lee</h3>
       <p class="small">Family Therapist</p>
-      <p class="small">Experience: 15 years</p>
+      <p class="small">15 years experience</p>
       <p class="small">Mon–Wed 10:00–16:00</p>
     </div>
 
@@ -242,7 +301,7 @@ body{
       <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"/>
       <h3>Dr. Anna Novak</h3>
       <p class="small">Trauma Specialist</p>
-      <p class="small">Experience: 10 years</p>
+      <p class="small">10 years experience</p>
       <p class="small">Thu–Sun 12:00–20:00</p>
     </div>
 
@@ -250,25 +309,23 @@ body{
       <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a"/>
       <h3>Dr. David Kim</h3>
       <p class="small">Anxiety Expert</p>
-      <p class="small">Experience: 11 years</p>
+      <p class="small">11 years experience</p>
       <p class="small">Mon–Fri 08:00–15:00</p>
     </div>
 
-    <!-- NEW -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54"/>
       <h3>Dr. Olivia Parker</h3>
       <p class="small">Behavioral Therapist</p>
-      <p class="small">Experience: 7 years</p>
+      <p class="small">7 years experience</p>
       <p class="small">Mon–Thu 09:00–16:00</p>
     </div>
 
-    <!-- NEW -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7"/>
       <h3>Dr. Noah Williams</h3>
-      <p class="small">Stress Management Expert</p>
-      <p class="small">Experience: 13 years</p>
+      <p class="small">Stress Management</p>
+      <p class="small">13 years experience</p>
       <p class="small">Tue–Fri 10:00–18:00</p>
     </div>
 
@@ -282,10 +339,9 @@ body{
   <div class="card" style="max-width:500px;margin:auto;text-align:center;">
     <p><b>Email:</b> hello@serenity.com</p>
     <p><b>Phone:</b> +374 00 000000</p>
-    <p><b>Sessions:</b> Online & In-person</p>
+    <p><b>Mode:</b> Online & In-person</p>
 
-    <br>
-    <a href="mailto:hello@serenity.com" class="btn">Book Session</a>
+    <a class="contact-btn" href="mailto:hello@serenity.com">Book Session</a>
   </div>
 </section>
 
