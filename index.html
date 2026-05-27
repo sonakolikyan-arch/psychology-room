@@ -3,30 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mindful Spaces | Clinical Psychology</title>
+<title>Mindful Spaces | Booking</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#f6f5f2;
-  --card: rgba(255,255,255,0.7);
+  --card: rgba(255,255,255,0.75);
   --text:#1d1d1f;
   --muted:#6e6e73;
   --line:rgba(0,0,0,0.08);
   --accent:#2f5d50;
-  --accent-soft:#dfe9e4;
-  --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  --shadow: 0 20px 60px rgba(0,0,0,0.10);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
-  font-family:Inter, sans-serif;
+  font-family:Inter,sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
 }
+
 html{scroll-behavior:smooth;}
 
 /* NAV */
@@ -34,8 +32,8 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  backdrop-filter: blur(20px);
-  background: rgba(246,245,242,0.6);
+  background:rgba(246,245,242,0.7);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid var(--line);
   z-index:1000;
 }
@@ -46,20 +44,20 @@ nav{
   padding:18px 24px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
 }
 
-.logo{font-weight:600;}
-
 .nav a{
-  margin-left:24px;
+  margin-left:20px;
   text-decoration:none;
   color:var(--muted);
   font-size:14px;
 }
 
 /* HERO */
-.hero{padding:140px 24px 80px;}
+.hero{
+  padding:140px 24px 60px;
+}
+
 .hero-grid{
   max-width:1200px;
   margin:auto;
@@ -69,28 +67,26 @@ nav{
   align-items:center;
 }
 
-h1{font-size:54px;line-height:1.05;}
-p{color:var(--muted);margin-top:14px;}
-
 .hero-img{
   height:520px;
-  border-radius:30px;
-  background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56');
+  border-radius:28px;
+  background-image:url("PASTE_YOUR_ORIGINAL_IMAGE_HERE.jpg");
   background-size:cover;
   background-position:center;
   box-shadow:var(--shadow);
 }
 
 /* SECTION */
-.section{padding:90px 24px;}
+.section{padding:80px 24px;}
 .container{max-width:1100px;margin:auto;}
 
-/* PSYCHOLOGISTS */
-.psych-grid{
+h2{font-size:32px;margin-bottom:20px;}
+
+/* DOCTORS */
+.grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
-  margin-top:40px;
+  gap:20px;
 }
 
 .card{
@@ -98,38 +94,132 @@ p{color:var(--muted);margin-top:14px;}
   border:1px solid var(--line);
   border-radius:22px;
   overflow:hidden;
-  backdrop-filter: blur(10px);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow);
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
 .card-img{
-  height:220px;
+  height:200px;
   background-size:cover;
   background-position:center;
 }
 
-.card-info{padding:18px;}
-
-.card-info h3{font-size:16px;}
-.card-info span{font-size:13px;color:var(--muted);display:block;margin-top:2px;}
+.card-body{
+  padding:16px;
+}
 
 .meta{
-  margin-top:10px;
   font-size:12px;
   color:var(--muted);
+  margin-top:8px;
   line-height:1.6;
 }
 
-/* RESPONSIVE */
+.btn{
+  margin-top:12px;
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  background:var(--text);
+  color:white;
+  font-size:13px;
+  cursor:pointer;
+}
+
+/* BOOKING PANEL */
+.booking{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  background:white;
+  padding:30px;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.calendar{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+}
+
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  margin-top:10px;
+}
+
+.day{
+  padding:10px;
+  text-align:center;
+  border-radius:10px;
+  background:#f3f3f3;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.day:hover{
+  background:var(--accent);
+  color:white;
+}
+
+/* SLOTS */
+.slots{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.slot{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  cursor:pointer;
+  font-size:13px;
+}
+
+.slot:hover{
+  background:var(--accent);
+  color:white;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:white;
+  padding:24px;
+  border-radius:18px;
+  width:320px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:18px;
+}
+
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;}
-  .psych-grid{grid-template-columns:1fr;}
-  h1{font-size:38px;}
+  .hero-grid,.grid,.booking{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -138,11 +228,10 @@ p{color:var(--muted);margin-top:14px;}
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">Mindful Spaces</div>
-    <div class="nav">
-      <a href="#about">About</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+    <div><b>Mindful Spaces</b></div>
+    <div>
+      <a href="#team">Doctors</a>
+      <a href="#booking">Booking</a>
     </div>
   </div>
 </nav>
@@ -151,101 +240,105 @@ p{color:var(--muted);margin-top:14px;}
 <section class="hero">
   <div class="hero-grid">
     <div>
-      <h1>Find calm in a world that never slows down.</h1>
-      <p>Modern psychotherapy designed with science, empathy, and silence — built for deep emotional recovery.</p>
+      <h1>Therapy, designed like a premium experience.</h1>
+      <p>Book sessions instantly with available psychologists, choose time slots, and start your healing journey.</p>
     </div>
     <div class="hero-img"></div>
   </div>
 </section>
 
-<!-- TEAM -->
+<!-- DOCTORS -->
 <section id="team" class="section">
   <div class="container">
-    <h2>Our Psychologists</h2>
+    <h2>Available Psychologists</h2>
 
-    <div class="psych-grid">
+    <div class="grid">
 
       <div class="card">
         <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f');"></div>
-        <div class="card-info">
-          <h3>Dr. Anna Smith</h3>
-          <span>Clinical Psychologist</span>
-          <div class="meta">
-            Experience: 10+ years<br>
-            Availability: Mon–Fri 10:00–17:00<br>
-            Price: $85 / session
-          </div>
+        <div class="card-body">
+          <b>Dr. Anna Smith</b>
+          <div class="meta">10+ years • $85/session</div>
+          <div class="btn" onclick="openBooking('Dr. Anna Smith')">Book Now</div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1614283233556-f35b0c801ef1');"></div>
-        <div class="card-info">
-          <h3>Dr. John Miller</h3>
-          <span>Cognitive Behavioral Therapist</span>
-          <div class="meta">
-            Experience: 8+ years<br>
-            Availability: Tue–Sat 11:00–19:00<br>
-            Price: $75 / session
-          </div>
+        <div class="card-body">
+          <b>Dr. John Miller</b>
+          <div class="meta">8+ years • $75/session</div>
+          <div class="btn" onclick="openBooking('Dr. John Miller')">Book Now</div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1622253692010-333f2da6031d');"></div>
-        <div class="card-info">
-          <h3>Dr. Emily Davis</h3>
-          <span>Trauma Specialist</span>
-          <div class="meta">
-            Experience: 12+ years<br>
-            Availability: Mon–Thu 09:00–16:00<br>
-            Price: $95 / session
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');"></div>
-        <div class="card-info">
-          <h3>Dr. Mark Wilson</h3>
-          <span>Family Therapist</span>
-          <div class="meta">
-            Experience: 7+ years<br>
-            Availability: Mon–Fri 12:00–20:00<br>
-            Price: $70 / session
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1582750433449-648ed127bb54');"></div>
-        <div class="card-info">
-          <h3>Dr. Sarah Johnson</h3>
-          <span>Mindfulness Expert</span>
-          <div class="meta">
-            Experience: 9+ years<br>
-            Availability: Wed–Sun 10:00–18:00<br>
-            Price: $80 / session
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2');"></div>
-        <div class="card-info">
-          <h3>Dr. David Brown</h3>
-          <span>Clinical Psychologist</span>
-          <div class="meta">
-            Experience: 11+ years<br>
-            Availability: Mon–Fri 09:00–17:00<br>
-            Price: $90 / session
-          </div>
+        <div class="card-body">
+          <b>Dr. Emily Davis</b>
+          <div class="meta">12+ years • $95/session</div>
+          <div class="btn" onclick="openBooking('Dr. Emily Davis')">Book Now</div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- BOOKING -->
+<section id="booking" class="section">
+  <div class="container booking">
+
+    <div class="calendar">
+      <h3>Select Date</h3>
+      <div class="days">
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+        <div class="day">Sun</div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Available Time Slots</h3>
+      <div class="slots">
+        <div class="slot">09:00</div>
+        <div class="slot">10:30</div>
+        <div class="slot">12:00</div>
+        <div class="slot">14:00</div>
+        <div class="slot">16:00</div>
+        <div class="slot">18:00</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="doctorName">Book Session</h3>
+    <input placeholder="Your Name"/>
+    <input placeholder="Email"/>
+    <input placeholder="Selected Time"/>
+    <button class="btn" style="width:100%">Confirm Booking</button>
+  </div>
+</div>
+
+<script>
+function openBooking(name){
+  document.getElementById("doctorName").innerText = "Book with " + name;
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
