@@ -1,430 +1,747 @@
-<!DOCTYPE html> 
+html_content = """<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Serenity Clinic</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Mindful Spaces Psychotherapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ================= ROOT BRAND (UPDATED TO EARTHY TONES LIKE IMG_7727.jpg) ================= */
-:root{
-  --primary: #4a5d4e;      /* Warm Sage/Olive Green */
-  --secondary: #c2a68f;    /* Muted Clay/Beige */
-  --dark: #2c2520;         /* Deep Earth Brown */
-  --text: #423934;         /* Soft Charcoal Brown */
-  --muted: #7a7069;        /* Muted Taupe */
-  --bg: #f9f6f0;           /* Soft Cream Warm Background */
-  --card-bg: #ffffff;
-}
-
-/* ================= GLOBAL ================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
-body{
-  background:var(--bg);
-  color:var(--text);
-  line-height: 1.6;
-}
-
-/* ================= NAVIGATION & LOGO ================= */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 40px;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:var(--dark);
-  font-weight:800;
-  font-size: 20px;
-}
-.logo-icon{
-  width:34px;
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  background: var(--primary);
-  color: white;
-}
-
-/* ================= HERO (SPLIT LAYOUT WITH CLEAR IMAGE) ================= */
-.hero{
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  min-height: 80vh;
-}
-.hero-content{
-  max-width:550px;
-}
-.hero h1{
-  font-size:56px;
-  font-weight:800;
-  letter-spacing:-1.5px;
-  color: var(--dark);
-  line-height: 1.1;
-}
-.hero p{
-  margin-top:20px;
-  font-size:18px;
-  color: var(--muted);
-}
-.hero-image-container {
-  width: 100%;
-  height: 100%;
-  min-height: 450px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-}
-.hero-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ================= BUTTONS ================= */
-.btn{
-  margin-top:30px;
-  display:inline-block;
-  padding:16px 34px;
-  border-radius:14px;
-  font-weight:700;
-  color:white;
-  text-decoration:none;
-  background: var(--primary);
-  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(74, 93, 78, 0.2);
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow: 0 6px 20px rgba(74, 93, 78, 0.3);
-  opacity: 0.95;
-}
-
-/* ================= STATS ================= */
-.stats{
-  margin-top:45px;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-}
-.stat{
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0,0,0,0.03);
-  backdrop-filter:blur(10px);
-  padding:15px 25px;
-  border-radius:14px;
-  flex: 1;
-  min-width:140px;
-}
-.stat h2{
-  font-size:24px;
-  color: var(--dark);
-  font-weight: 800;
-}
-.stat p{
-  font-size:13px;
-  margin-top: 2px;
-  color: var(--muted);
-}
-
-/* ================= SECTIONS ================= */
-.section{
-  padding:100px 40px;
-  max-width:1300px;
-  margin:auto;
-}
-.section-title {
-  font-size:36px;
-  font-weight: 800;
-  color: var(--dark);
-  letter-spacing: -0.5px;
-  margin-bottom: 45px;
-}
-.text-center {
-  text-align: center;
-}
-
-/* ================= SAFETY SECTION (NEW FEATURE) ================= */
-.safety-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.safety-img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 24px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-}
-.safety-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-.safety-item h4 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.safety-item h4::before {
-  content: "✓";
-  color: var(--secondary);
-  font-weight: 800;
-}
-.safety-item p {
-  color: var(--muted);
-  font-size: 15px;
-  padding-left: 22px;
-}
-
-/* ================= GRID & CARDS ================= */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.card{
-  background: var(--card-bg);
-  border-radius:20px;
-  padding:24px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.02);
-  transition:0.3s;
-  border: 1px solid rgba(0,0,0,0.01);
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 35px rgba(0,0,0,0.05);
-}
-.card img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  border-radius:16px;
-  margin-bottom: 15px;
-}
-.card h3 {
-  font-weight: 700;
-  color: var(--dark);
-}
-.small{
-  font-size:13px;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-/* ================= CONTACT BUTTON ================= */
-.contact-btn{
-  margin-top:20px;
-  display:inline-block;
-  padding:14px 28px;
-  border-radius:12px;
-  background:var(--primary);
-  color:white;
-  font-weight:700;
-  text-decoration:none;
-  transition:0.3s;
-}
-.contact-btn:hover{
-  transform:translateY(-3px);
-  opacity: 0.9px;
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:992px){
-  .hero, .safety-split {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  /* ================= ROOT VARIABLES & BRAND PALETTE ================= */
+  /* Using premium, warm, organic tones inspired by modern therapy spaces */
+  :root {
+    --primary: #4a5d4e;       /* Calming Sage Green */
+    --primary-hover: #3d4d40; /* Deepened Sage Green */
+    --secondary: #c2a68f;     /* Warm Sand / Teracotta Clay */
+    --secondary-light: #f4ede4;/* Ultra-soft cream highlight */
+    --dark: #2c2520;          /* Grounded Charcoal Earth */
+    --text: #4a403a;          /* Soft Charcoal for legibility */
+    --muted: #7a7069;         /* Earthy Taupe for secondary text */
+    --bg: #faf7f2;            /* Healing Cream White Canvas */
+    --card-bg: #ffffff;       /* Pure Crisp White for content separation */
+    --max-width: 1200px;
   }
-  .hero-image-container {
-    min-height: 350px;
-    grid-row: 1; /* Puts image on top for mobile views */
+
+  /* ================= GLOBAL RESETS & STYLES ================= */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  .safety-img {
-    height: 350px;
+
+  html {
+    scroll-behavior: smooth;
   }
-}
-@media(max-width:768px){
-  .hero h1{font-size:38px;}
-  .navbar { padding: 20px; }
-  .section { padding: 60px 20px; }
-}
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ================= REUSABLE UTILITIES ================= */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section {
+    padding: 100px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 60px auto;
+  }
+
+  .section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  /* Subtle elegant divider under headers */
+  .section-header h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary);
+    margin: 12px auto 0 auto;
+    border-radius: 2px;
+  }
+
+  .section-header p {
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  /* BUTTONS WITH SMOOTH HOVER STATES */
+  .btn {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(74, 93, 78, 0.25);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 93, 78, 0.35);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    margin-left: 12px;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* ================= NAVIGATION BAR ================= */
+  .header-nav {
+    background-color: rgba(250, 247, 242, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(44, 37, 32, 0.04);
+    transition: all 0.3s ease;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.3px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50% 50% 50% 0; /* Elegant natural drop shape */
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 32px;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--primary);
+  }
+
+  /* Quick CTA menu item button layout */
+  .nav-btn {
+    background-color: var(--dark);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* ================= HERO SECTION (CLEAN SPLIT LAYOUT) ================= */
+  .hero-section {
+    padding: 60px 0 100px 0;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .hero-content {
+    flex: 1;
+    max-width: 540px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--secondary-light);
+    color: var(--primary);
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .hero-content h1 {
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Crisp placeholder visual styling representing high-end clinic */
+  .hero-image-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 550px;
+    border-radius: 40px 40px 0px 40px;
+    background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 30px 60px rgba(44, 37, 32, 0.1);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Aesthetic backing card element mimicking template background shapes */
+  .hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 250px;
+    height: 250px;
+    background-color: var(--secondary-light);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  /* ================= ABOUT SECTION ================= */
+  .about-section {
+    background-color: white;
+  }
+
+  .about-grid {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .about-image {
+    flex: 1;
+    height: 48px;
+    min-width: 400px;
+    height: 450px;
+    border-radius: 24px;
+    background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+  }
+
+  .about-content {
+    flex: 1;
+  }
+
+  .about-content h3 {
+    font-size: 28px;
+    color: var(--dark);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .about-content p {
+    margin-bottom: 20px;
+    color: var(--text);
+    font-size: 16px;
+  }
+
+  /* ================= BENEFITS SECTION ================= */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .benefit-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(44, 37, 32, 0.02);
+    border: 1px solid rgba(44, 37, 32, 0.02);
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(44, 37, 32, 0.06);
+    border-color: rgba(74, 93, 78, 0.1);
+  }
+
+  .benefit-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background-color: var(--secondary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .benefit-card h3 {
+    font-size: 20px;
+    color: var(--dark);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .benefit-card p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* ================= SAFETY SECTION ================= */
+  .safety-section {
+    background-color: var(--secondary-light);
+  }
+
+  .safety-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .safety-content {
+    flex: 1;
+  }
+
+  .safety-content h2 {
+    font-size: 36px;
+    color: var(--dark);
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .safety-list {
+    list-style: none;
+    margin-top: 30px;
+  }
+
+  .safety-item {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 24px;
+  }
+
+  /* Styled custom modern green checkmark */
+  .safety-item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .safety-item h4 {
+    font-size: 17px;
+    color: var(--dark);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .safety-item p {
+    color: var(--text);
+    font-size: 14.5px;
+  }
+
+  .safety-image {
+    flex: 1;
+    min-width: 400px;
+    height: 480px;
+    border-radius: 30px;
+    background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  }
+
+  /* ================= CONTACT SECTION ================= */
+  .contact-section {
+    background-color: white;
+  }
+
+  .contact-card {
+    background-color: var(--bg);
+    border-radius: 30px;
+    padding: 60px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.02);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .contact-info h3 {
+    font-size: 28px;
+    color: var(--dark);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .contact-info p {
+    color: var(--muted);
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contact-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: bold;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  }
+
+  .contact-detail-text h5 {
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-detail-text p {
+    font-size: 16px;
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  /* CONTACT FORM FORMFIELDS */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(44, 37, 32, 0.12);
+    background-color: white;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--dark);
+    transition: all 0.2s ease;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(74, 93, 78, 0.1);
+  }
+
+  textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  /* ================= FOOTER ================= */
+  footer {
+    background-color: var(--dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* ================= MODERN RESPONSIVE BREAKPOINTS (MEDIA QUERIES) ================= */
+  @media (max-width: 992px) {
+    .section { padding: 80px 0; }
+    .hero-grid, .about-grid, .safety-grid, .contact-card {
+      flex-direction: column;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-content, .about-content, .safety-content {
+      max-width: 100%;
+      text-align: center;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+    .section-header h2::after { margin: 12px auto 0 auto; }
+    .about-image, .safety-image {
+      min-width: 100%;
+      height: 380px;
+    }
+    .safety-item { text-align: left; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu { display: none; } /* Kept clean for simple pure CSS repository presentation */
+    .hero-content h1 { font-size: 38px; }
+    .section-header h2 { font-size: 28px; }
+    .contact-card { padding: 30px 20px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ================= NAVIGATION ================= -->
-<nav class="navbar">
-  <div class="logo">
-    <div class="logo-icon">◈</div>
-    Serenity Clinic
-  </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-<header class="hero">
-  <div class="hero-content">
-    <h1>Find Inner Peace</h1>
-    <p>Clinical psychology support for emotional balance, healing, and long-term mental clarity.</p>
-    <a href="#contact" class="btn">Book Session</a>
-    
-    <!-- STATS -->
-    <div class="stats">
-      <div class="stat">
-        <h2>12,500+</h2>
-        <p>Clients served</p>
-      </div>
-      <div class="stat">
-        <h2>94%</h2>
-        <p>Feel improvement</p>
-      </div>
-      <div class="stat">
-        <h2>18 Years</h2>
-        <p>Clinic experience</p>
-      </div>
-    </div>
-  </div>
-  
-  <!-- CLEAR BANNER PICTURE BLOCK (Inspired by IMG_7727.jpg) -->
-  <div class="hero-image-container">
-    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Serene therapeutic environment"/>
-  </div>
-</header>
-
-<!-- ================= ABOUT ================= -->
-<section class="section">
-  <h2 class="section-title text-center">About Our Clinic</h2>
-  <p style="max-width:800px;margin:auto;text-align:center;color:var(--muted);line-height:1.8;font-size:17px;">
-    Serenity Clinic is a modern psychological care center focused on emotional healing, anxiety treatment, trauma recovery, and personal growth.  
-    We combine clinical expertise with mindfulness-based therapy to provide long-term mental wellness solutions in a safe, confidential environment.
-  </p>
-</section>
-
-<!-- ================= WHY IT FEELS SAFE SECTION (NEW) ================= -->
-<section class="section" style="background: rgba(255,255,255,0.5); border-top: 1px solid rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.02);">
-  <div class="safety-split">
-    <div>
-      <h2 class="section-title" style="margin-bottom: 25px;">Why It Feels Safe In Our Center</h2>
-      <p style="color: var(--muted); margin-bottom: 35px; font-size: 16px;">Your peace of mind is our highest priority. From your first step into our clinic to your private sessions, every detail is engineered to ensure a secure, unhurried, and deeply supportive therapeutic journey.</p>
-      
-      <ul class="safety-list">
-        <li class="safety-item">
-          <h4>Strict Clinical Confidentiality</h4>
-          <p>Your privacy is absolute. All sessions, notes, and records are secured behind strict healthcare-grade privacy standards.</p>
-        </li>
-        <li class="safety-item">
-          <h4>Warm, Non-Judgmental Space</h4>
-          <p>Our rooms are designed using calming, organic interior choices to drastically reduce clinical anxiety and promote deep reflection.</p>
-        </li>
-        <li class="safety-item">
-          <h4>Licensed Medical Experts</h4>
-          <p>Every specialist is fully accredited with years of hospital and clinical trial experience, matching you with validated care techniques.</p>
-        </li>
+  <nav class="header-nav">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon"></div>
+        Mindful Spaces
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#benefits" class="nav-link">Benefits</a></li>
+        <li><a href="#safety" class="nav-link">Our Space</a></li>
+        <li><a href="#contact" class="nav-btn">Book Session</a></li>
       </ul>
     </div>
-    <div>
-      <!-- DEDICATED SAFETY IMAGE -->
-      <img class="safety-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Warm therapeutic space layout"/>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ================= PSYCHOLOGISTS ================= -->
-<section class="section">
-  <h2 class="section-title text-center">Our Specialists</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. Sarah Mitchell</h3>
-      <p class="small">Clinical Psychologist</p>
-      <p class="small">12 years experience</p>
-      <p class="small">Mon–Thu 10:00–18:00</p>
+  <header class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge">Clinical Psychotherapy</span>
+        <h1>Find Your Calm. Rediscover Yourself.</h1>
+        <p>Providing professional, empathetic clinical psychology support to guide you through emotional balance, deep mental healing, and long-term personal clarity.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book Consultation</a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-placeholder"></div>
+      </div>
     </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. James Carter</h3>
-      <p class="small">CBT Specialist</p>
-      <p class="small">9 years experience</p>
-      <p class="small">Mon–Fri 09:00–17:00</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. Emily Brown</h3>
-      <p class="small">Mindfulness Expert</p>
-      <p class="small">8 years experience</p>
-      <p class="small">Tue–Sat 11:00–19:00</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1542190891-2093d38760f2?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. Michael Lee</h3>
-      <p class="small">Family Therapist</p>
-      <p class="small">15 years experience</p>
-      <p class="small">Mon–Wed 10:00–16:00</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. Anna Novak</h3>
-      <p class="small">Trauma Specialist</p>
-      <p class="small">10 years experience</p>
-      <p class="small">Thu–Sun 12:00–20:00</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. David Kim</h3>
-      <p class="small">Anxiety Expert</p>
-      <p class="small">11 years experience</p>
-      <p class="small">Mon–Fri 08:00–15:00</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. Olivia Parker</h3>
-      <p class="small">Behavioral Therapist</p>
-      <p class="small">7 years experience</p>
-      <p class="small">Mon–Thu 09:00–16:00</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80"/>
-      <h3>Dr. Noah Williams</h3>
-      <p class="small">Stress Management</p>
-      <p class="small">13 years experience</p>
-      <p class="small">Tue–Fri 10:00–18:00</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- ================= CONTACT ================= -->
-<section class="section" id="contact">
-  <h2 class="section-title text-center">Contact Us</h2>
-  <div class="card" style="max-width:500px;margin:auto;text-align:center; padding: 40px 20px;">
-    <p style="margin-bottom: 8px;"><b>Email:</b> hello@serenity.com</p>
-    <p style="margin-bottom: 8px;"><b>Phone:</b> +374 00 000000</p>
-    <p style="margin-bottom: 8px;"><b>Mode:</b> Online & In-person</p>
-    <a class="contact-btn" href="mailto:hello@serenity.com">Book Session</a>
-  </div>
-</section>
+  <section id="about" class="section about-section">
+    <div class="container about-grid">
+      <div class="about-image"></div>
+      <div class="about-content">
+        <h3>Compassionate Care Guided by Clinical Expertise</h3>
+        <p>At Mindful Spaces, we utilize evidence-based psychological treatment methods combined with mindfulness-centered philosophy. Our approach is custom-tailored around your specific situation, helping you process struggles dynamically and confidently.</p>
+        <p>Whether you're processing sudden life transitions, chronic anxiety, relationship structures, or personal trauma, we're dedicated to helping you rebuild clarity in an accommodating layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" class="section benefits-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Therapeutic Approach</h2>
+        <p>We provide specialized mental health care formats meticulously organized around modern, research-driven frameworks.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🧠</div>
+          <h3>Cognitive Behavioral Therapy (CBT)</h3>
+          <p>Identify, evaluate, and transform negative cognitive patterns and disruptive behavioral responses into sustainable coping mechanics.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌿</div>
+          <h3>Mindfulness Integration</h3>
+          <p>Cultivate intentional groundings to regulate your nervous system, lower somatic stress impact, and establish present-moment stability.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤍</div>
+          <h3>Trauma-Informed Care</h3>
+          <p>A gentle, pacing-focused therapy format focusing on repairing underlying regulatory responses within a fully secure setting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety" class="section safety-section">
+    <div class="container safety-grid">
+      <div class="safety-content">
+        <h2>Why It Feels Safe In Our Center</h2>
+        <p>Your ultimate peace of mind and emotional preservation remain our single top priority. Every element of our environment is engineered to provide complete reassurance.</p>
+        
+        <ul class="safety-list">
+          <li class="safety-item">
+            <h4>Absolute Medical Confidentiality</h4>
+            <p>Your identity and medical sessions are completely confidential, protected by modern clinical security structures.</p>
+          </li>
+          <li class="safety-item">
+            <h4>Organic Calm Environment</h4>
+            <p>Our rooms omit sterile medical layouts in favor of soothing warm light, clean textures, and soundproofing to keep you grounded.</p>
+          </li>
+          <li class="safety-item">
+            <h4>Paced, Collaborative Healing</h4>
+            <p>We never rush processes. You maintain control of session directions and discussion limits while working with our licensed team.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="safety-image"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-info">
+          <h3>Begin Your Journey</h3>
+          <p>Ready to reclaim your headspace? Drop a note to schedule a free initial 15-minute consultation window to evaluate fit parameters.</p>
+          
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-icon-box">✉</div>
+              <div class="contact-detail-text">
+                <h5>Email Us</h5>
+                <p>care@mindfulspaces.com</p>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-box">☏</div>
+              <div class="contact-detail-text">
+                <h5>Call Securely</h5>
+                <p>+1 (555) 234-7890</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Our intake coordination team will reach out within 24 hours.');">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">How can we support you?</label>
+            <textarea id="message" class="form-control" placeholder="Briefly share what you would like to address (Optional)"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="border-radius: 12px; margin-top: 10px;">Submit Intake Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Mindful Spaces Psychotherapy Clinic. All Rights Reserved. Professional clinical services.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+print("File successfully generated.")
