@@ -33,7 +33,7 @@ body::after {
   width: 500px;
   height: 500px;
   z-index: -1;
-  filter: blur(80px);
+  filter: blur(90px);
 }
 
 body::before {
@@ -48,7 +48,6 @@ body::after {
   right: -150px;
 }
 
-/* container */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -65,11 +64,9 @@ body::after {
   overflow: hidden;
 }
 
-/* banner image */
 .hero img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -78,7 +75,6 @@ body::after {
   filter: blur(2px);
 }
 
-/* overlay gradient */
 .hero::before {
   content: "";
   position: absolute;
@@ -96,11 +92,11 @@ body::after {
 
 .hero p {
   margin-top: 20px;
+  font-size: 18px;
   color: #b8c0cc;
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 18px;
 }
 
 .btn {
@@ -125,11 +121,65 @@ body::after {
 .section-title {
   text-align: center;
   font-size: 34px;
-  margin: 60px 0 40px;
+  margin: 70px 0 40px;
 }
 
 /* =========================
-   PSYCHOLOGISTS SECTION
+   STATS SECTION
+========================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 60px 0;
+}
+
+.stat {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.stat h2 {
+  font-size: 32px;
+  color: #4cc9f0;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services {
+  padding: 60px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 18px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(76,201,240,0.4);
+}
+
+.card h3 {
+  color: #4cc9f0;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   PSYCHOLOGISTS
 ========================= */
 .psychologists {
   padding: 60px 0;
@@ -141,67 +191,58 @@ body::after {
   gap: 20px;
 }
 
-.card {
+.profile {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 18px;
-  padding: 20px;
+  overflow: hidden;
   transition: 0.3s;
 }
 
-.card:hover {
+.profile:hover {
   transform: translateY(-6px);
-  border-color: rgba(76,201,240,0.4);
 }
 
-/* profile image */
-.card img {
+.profile img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 15px;
 }
 
-.card h3 {
-  margin-bottom: 6px;
+.profile-content {
+  padding: 20px;
 }
 
-.info {
-  color: #b8c0cc;
-  font-size: 14px;
-  margin-top: 6px;
-}
-
-/* highlight price */
 .price {
+  color: #4cc9f0;
   margin-top: 10px;
   font-weight: 600;
-  color: #4cc9f0;
 }
 
 /* =========================
-   FEATURES / ABOUT STYLE
+   FEEDBACKS
 ========================= */
-.about {
+.feedbacks {
   padding: 60px 0;
 }
 
-.grid {
+.feedback-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.box {
+.feedback {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
-  padding: 25px;
+  padding: 20px;
   border-radius: 18px;
+  font-style: italic;
+  color: #cfd6e1;
 }
 
 /* =========================
-   CONTACT SECTION
+   CONTACT
 ========================= */
 .contact {
   padding: 80px 0;
@@ -226,9 +267,9 @@ input, textarea {
 button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #4cc9f0, #7b2cbf);
   border: none;
   border-radius: 10px;
+  background: linear-gradient(135deg, #4cc9f0, #7b2cbf);
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -242,7 +283,6 @@ button {
     font-size: 34px;
   }
 
-  .grid,
   .contact-box {
     grid-template-columns: 1fr;
   }
@@ -254,37 +294,71 @@ button {
 <body>
 
 <!-- =========================
-     HERO WITH IMAGE
+     HERO
 ========================= -->
 <section class="hero">
-
-  <!-- Banner Image -->
-  <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1600&q=80" alt="therapy">
-
-  <h1>Find peace in your thoughts</h1>
-  <p>Professional psychology services for anxiety, stress, relationships, and emotional well-being.</p>
+  <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1600&q=80" alt="">
+  <h1>Healing begins with understanding your mind</h1>
+  <p>Professional psychology services for anxiety, stress, relationships, and emotional recovery.</p>
   <a href="#contact" class="btn">Book a Session</a>
+</section>
+
+<!-- =========================
+     STATS SECTION
+========================= -->
+<section class="container stats">
+
+  <div class="stat">
+    <h2>2,500+</h2>
+    <p>Clients supported</p>
+  </div>
+
+  <div class="stat">
+    <h2>87%</h2>
+    <p>Report improved well-being</p>
+  </div>
+
+  <div class="stat">
+    <h2>10+ yrs</h2>
+    <p>Clinical experience</p>
+  </div>
 
 </section>
 
 <!-- =========================
-     ABOUT SECTION
+     SERVICES
 ========================= -->
-<section class="about container">
-  <h2 class="section-title">Why choose us</h2>
+<section class="services container">
+
+  <h2 class="section-title">Our Services</h2>
 
   <div class="grid">
-    <div class="box">
-      We provide a safe, confidential environment where you can express yourself freely without judgment.
+
+    <div class="card">
+      <h3>Anxiety Therapy</h3>
+      <p>Reduce panic, worry, and emotional overload.</p>
     </div>
-    <div class="box">
-      Our therapists use evidence-based methods combined with human empathy and emotional understanding.
+
+    <div class="card">
+      <h3>Depression Support</h3>
+      <p>Guided emotional recovery and motivation rebuilding.</p>
     </div>
+
+    <div class="card">
+      <h3>Relationship Counseling</h3>
+      <p>Improve communication and emotional connection.</p>
+    </div>
+
+    <div class="card">
+      <h3>Trauma Healing</h3>
+      <p>Safe processing of past emotional experiences.</p>
+    </div>
+
   </div>
 </section>
 
 <!-- =========================
-     PSYCHOLOGISTS SECTION
+     PSYCHOLOGISTS
 ========================= -->
 <section class="psychologists container">
 
@@ -292,55 +366,79 @@ button {
 
   <div class="cards">
 
-    <!-- Psychologist 1 -->
-    <div class="card">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2" alt="">
-      <h3>Dr. Anna Sargsyan</h3>
-      <div class="info">Availability: Mon–Wed, 10:00–14:00</div>
-      <div class="info">Specialty: Anxiety & Stress</div>
-      <div class="price">$60 per session</div>
+      <div class="profile-content">
+        <h3>Dr. Anna Sargsyan</h3>
+        <p>Mon–Wed | 10:00–14:00</p>
+        <p class="price">$60 / session</p>
+      </div>
     </div>
 
-    <!-- Psychologist 2 -->
-    <div class="card">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="">
-      <h3>Dr. Lilit Manukyan</h3>
-      <div class="info">Availability: Tue–Fri, 12:00–18:00</div>
-      <div class="info">Specialty: Relationships</div>
-      <div class="price">$70 per session</div>
+      <div class="profile-content">
+        <h3>Dr. Lilit Manukyan</h3>
+        <p>Tue–Fri | 12:00–18:00</p>
+        <p class="price">$70 / session</p>
+      </div>
     </div>
 
-    <!-- Psychologist 3 -->
-    <div class="card">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d" alt="">
-      <h3>Dr. Arman Petrosyan</h3>
-      <div class="info">Availability: Mon–Sat, 09:00–15:00</div>
-      <div class="info">Specialty: Trauma & Burnout</div>
-      <div class="price">$80 per session</div>
+      <div class="profile-content">
+        <h3>Dr. Arman Petrosyan</h3>
+        <p>Mon–Sat | 09:00–15:00</p>
+        <p class="price">$80 / session</p>
+      </div>
     </div>
 
   </div>
 </section>
 
 <!-- =========================
-     CONTACT SECTION
+     FEEDBACKS
+========================= -->
+<section class="feedbacks container">
+
+  <h2 class="section-title">Client Feedback</h2>
+
+  <div class="feedback-grid">
+
+    <div class="feedback">
+      “I finally feel lighter and more in control of my emotions.”
+    </div>
+
+    <div class="feedback">
+      “Therapy helped me understand myself in a deeper way.”
+    </div>
+
+    <div class="feedback">
+      “A safe and calming space. Highly recommended.”
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     CONTACT
 ========================= -->
 <section class="contact container" id="contact">
 
-  <h2 class="section-title">Contact & Booking</h2>
+  <h2 class="section-title">Start Your Healing Journey</h2>
 
   <div class="contact-box">
 
-    <div class="box">
+    <div>
       <p>Email: support@mindcare.com</p>
       <p>Phone: +374 00 000 000</p>
-      <p>We respond within 24 hours.</p>
+      <p>Response within 24 hours</p>
     </div>
 
     <div>
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <textarea rows="4" placeholder="Your Message"></textarea>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea rows="4" placeholder="Message"></textarea>
       <button>Request Appointment</button>
     </div>
 
