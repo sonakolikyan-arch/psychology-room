@@ -1,6 +1,5 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -25,7 +24,7 @@
   --max-width: 1200px;
 }
 
-/* ================= GLOBAL RESET ================= */
+/* ================= GLOBAL RESETS ================= */
 
 *, *::before, *::after {
   margin: 0;
@@ -33,14 +32,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ================= HERO IMAGE (FIRST IMAGE) ================= */
+/* ================= HERO IMAGE ================= */
 
 .hero-image-placeholder {
   width: 100%;
@@ -51,9 +55,11 @@ body {
   background-size: cover;
   background-position: center;
   box-shadow: 0 30px 60px rgba(44, 37, 32, 0.1);
+  position: relative;
+  z-index: 2;
 }
 
-/* ================= ABOUT IMAGE (SECOND IMAGE UPDATED) ================= */
+/* ================= ABOUT IMAGE (UPDATED) ================= */
 
 .about-image {
   flex: 1;
@@ -66,18 +72,120 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.03);
 }
 
-/* (rest of your CSS stays exactly the same) */
+/* ================= NAVIGATION ================= */
+
+.header-nav {
+  background-color: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+/* ================= HERO SECTION ================= */
+
+.hero-section {
+  padding: 60px 0 100px;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-section {
+  background-color: white;
+}
+
+.about-grid {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* ================= SAFETY IMAGE (unchanged placeholder kept) ================= */
+
+.safety-image {
+  flex: 1;
+  min-width: 400px;
+  height: 480px;
+  border-radius: 30px;
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .hero-grid, .about-grid {
+    flex-direction: column;
+  }
+
+  .about-image {
+    min-width: 100%;
+    height: 380px;
+  }
+
+  .hero-image-placeholder {
+    height: 420px;
+  }
+}
 
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav class="header-nav">
+  <div class="container nav-container">
+    <a class="logo">Mindful Spaces</a>
+  </div>
+</nav>
+
 <!-- HERO -->
-<div class="hero-image-placeholder"></div>
+<header class="hero-section">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+      <h1>Find Your Calm. Rediscover Yourself.</h1>
+      <p>Professional psychotherapy support for emotional balance and clarity.</p>
+    </div>
+
+    <div class="hero-image-placeholder"></div>
+
+  </div>
+</header>
 
 <!-- ABOUT -->
-<div class="about-image"></div>
+<section class="section about-section">
+  <div class="container about-grid">
+
+    <div class="about-image"></div>
+
+    <div class="about-content">
+      <h3>Compassionate Care Guided by Clinical Expertise</h3>
+      <p>Evidence-based psychological treatment combined with mindfulness-centered care.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section">
+  <div class="container safety-image"></div>
+</section>
 
 </body>
 </html>
