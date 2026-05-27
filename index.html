@@ -1,224 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mindful Spaces | Booking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychology Services</title>
 
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#f6f5f2;
-  --card: rgba(255,255,255,0.75);
-  --text:#1d1d1f;
-  --muted:#6e6e73;
-  --line:rgba(0,0,0,0.08);
-  --accent:#2f5d50;
-  --shadow: 0 20px 60px rgba(0,0,0,0.10);
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:Inter,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+body {
+  background: #f6f8fb;
+  color: #1d1d1f;
+  line-height: 1.6;
 }
 
-html{scroll-behavior:smooth;}
-
-/* NAV */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(246,245,242,0.7);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line);
-  z-index:1000;
+/* Smooth container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 24px;
-  display:flex;
-  justify-content:space-between;
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  background: linear-gradient(135deg, #eaf4f4, #f6f8fb);
+  padding: 100px 20px;
+  text-align: center;
 }
 
-.nav a{
-  margin-left:20px;
-  text-decoration:none;
-  color:var(--muted);
-  font-size:14px;
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  max-width: 800px;
+  margin: auto;
 }
 
-/* HERO */
-.hero{
-  padding:140px 24px 60px;
+.hero p {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero-grid{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:60px;
-  align-items:center;
+.hero .btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 28px;
+  background: #2a6f6f;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
-.hero-img{
-  height:520px;
-  border-radius:28px;
-  background-image:url("PASTE_YOUR_ORIGINAL_IMAGE_HERE.jpg");
-  background-size:cover;
-  background-position:center;
-  box-shadow:var(--shadow);
+.hero .btn:hover {
+  background: #1f5252;
+  transform: translateY(-2px);
 }
 
-/* SECTION */
-.section{padding:80px 24px;}
-.container{max-width:1100px;margin:auto;}
-
-h2{font-size:32px;margin-bottom:20px;}
-
-/* DOCTORS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+/* =========================
+   SECTION TITLE
+========================= */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  font-weight: 700;
 }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+/* =========================
+   ABOUT SECTION
+========================= */
+.about {
+  padding: 80px 20px;
 }
 
-.card-img{
-  height:200px;
-  background-size:cover;
-  background-position:center;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
-.card-body{
-  padding:16px;
+.about p {
+  color: #555;
 }
 
-.meta{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:8px;
-  line-height:1.6;
+.about-box {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
 }
 
-.btn{
-  margin-top:12px;
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:999px;
-  background:var(--text);
-  color:white;
-  font-size:13px;
-  cursor:pointer;
+.about-box:hover {
+  transform: translateY(-5px);
 }
 
-/* BOOKING PANEL */
-.booking{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  background:white;
-  padding:30px;
-  border-radius:24px;
-  box-shadow:var(--shadow);
+/* =========================
+   FEATURES SECTION
+========================= */
+.features {
+  padding: 80px 20px;
 }
 
-.calendar{
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px;
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
 }
 
-.days{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:8px;
-  margin-top:10px;
+.feature-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: 0.3s;
 }
 
-.day{
-  padding:10px;
-  text-align:center;
-  border-radius:10px;
-  background:#f3f3f3;
-  cursor:pointer;
-  font-size:13px;
+.feature-card:hover {
+  transform: translateY(-6px);
+  background: #f0f7f7;
 }
 
-.day:hover{
-  background:var(--accent);
-  color:white;
+.feature-card h3 {
+  margin-bottom: 10px;
+  color: #2a6f6f;
 }
 
-/* SLOTS */
-.slots{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact {
+  padding: 80px 20px;
+  background: #eaf4f4;
+  border-radius: 20px;
 }
 
-.slot{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  cursor:pointer;
-  font-size:13px;
+.contact-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
-.slot:hover{
-  background:var(--accent);
-  color:white;
+.contact-info p {
+  margin-bottom: 10px;
+  color: #444;
 }
 
-/* MODAL */
-.modal{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.4);
-  display:none;
-  justify-content:center;
-  align-items:center;
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.modal-content{
-  background:white;
-  padding:24px;
-  border-radius:18px;
-  width:320px;
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
 }
 
-input{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:12px;
-  border:1px solid var(--line);
+.contact-form button {
+  padding: 12px;
+  border: none;
+  background: #2a6f6f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.close{
-  float:right;
-  cursor:pointer;
-  font-size:18px;
+.contact-form button:hover {
+  background: #1f5252;
 }
 
-@media(max-width:900px){
-  .hero-grid,.grid,.booking{
-    grid-template-columns:1fr;
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .about-grid,
+  .contact-box {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -226,119 +223,100 @@ input{
 
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <div><b>Mindful Spaces</b></div>
-    <div>
-      <a href="#team">Doctors</a>
-      <a href="#booking">Booking</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
+<!-- =========================
+     HERO SECTION
+========================= -->
 <section class="hero">
-  <div class="hero-grid">
-    <div>
-      <h1>Therapy, designed like a premium experience.</h1>
-      <p>Book sessions instantly with available psychologists, choose time slots, and start your healing journey.</p>
-    </div>
-    <div class="hero-img"></div>
-  </div>
+  <h1>Professional Psychology Services for a Healthier Mind</h1>
+  <p>Support for anxiety, stress, relationships, and emotional well-being — in a safe and understanding space.</p>
+  <a href="#contact" class="btn">Book a Consultation</a>
 </section>
 
-<!-- DOCTORS -->
-<section id="team" class="section">
-  <div class="container">
-    <h2>Available Psychologists</h2>
+<!-- =========================
+     ABOUT SECTION
+========================= -->
+<section class="about container">
+  <h2 class="section-title">About Our Practice</h2>
 
-    <div class="grid">
+  <div class="about-grid">
+    <div class="about-box">
+      <p>
+        We provide a safe, supportive environment where you can explore your thoughts and emotions freely.
+        Our goal is to help you understand yourself better and build emotional resilience.
+      </p>
+    </div>
 
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f');"></div>
-        <div class="card-body">
-          <b>Dr. Anna Smith</b>
-          <div class="meta">10+ years • $85/session</div>
-          <div class="btn" onclick="openBooking('Dr. Anna Smith')">Book Now</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1614283233556-f35b0c801ef1');"></div>
-        <div class="card-body">
-          <b>Dr. John Miller</b>
-          <div class="meta">8+ years • $75/session</div>
-          <div class="btn" onclick="openBooking('Dr. John Miller')">Book Now</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1622253692010-333f2da6031d');"></div>
-        <div class="card-body">
-          <b>Dr. Emily Davis</b>
-          <div class="meta">12+ years • $95/session</div>
-          <div class="btn" onclick="openBooking('Dr. Emily Davis')">Book Now</div>
-        </div>
-      </div>
-
+    <div class="about-box">
+      <p>
+        Our approach is client-centered, compassionate, and evidence-based. We believe healing happens
+        through trust, conversation, and personalized care.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- BOOKING -->
-<section id="booking" class="section">
-  <div class="container booking">
+<!-- =========================
+     FEATURES SECTION
+========================= -->
+<section class="features container">
+  <h2 class="section-title">What We Help With</h2>
 
-    <div class="calendar">
-      <h3>Select Date</h3>
-      <div class="days">
-        <div class="day">Mon</div>
-        <div class="day">Tue</div>
-        <div class="day">Wed</div>
-        <div class="day">Thu</div>
-        <div class="day">Fri</div>
-        <div class="day">Sat</div>
-        <div class="day">Sun</div>
-      </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Anxiety & Stress</h3>
+      <p>Learn techniques to manage worry, panic, and everyday stress.</p>
     </div>
 
-    <div>
-      <h3>Available Time Slots</h3>
-      <div class="slots">
-        <div class="slot">09:00</div>
-        <div class="slot">10:30</div>
-        <div class="slot">12:00</div>
-        <div class="slot">14:00</div>
-        <div class="slot">16:00</div>
-        <div class="slot">18:00</div>
-      </div>
+    <div class="feature-card">
+      <h3>Depression Support</h3>
+      <p>Guidance through emotional lows and recovery strategies.</p>
     </div>
+
+    <div class="feature-card">
+      <h3>Relationships</h3>
+      <p>Improve communication and emotional connection.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Self-Esteem</h3>
+      <p>Build confidence and a healthier self-image.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     CONTACT SECTION
+========================= -->
+<section class="contact container" id="contact">
+  <h2 class="section-title">Contact Us</h2>
+
+  <div class="contact-box">
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <p><strong>Email:</strong> support@psychologycare.com</p>
+      <p><strong>Phone:</strong> +374 00 000 000</p>
+      <p><strong>Hours:</strong> Mon - Fri, 10:00 - 18:00</p>
+      <p>We usually respond within 24 hours.</p>
+    </div>
+
+    <!-- Contact Form (static, no JS) -->
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="button">Send Message</button>
+    </form>
 
   </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 id="doctorName">Book Session</h3>
-    <input placeholder="Your Name"/>
-    <input placeholder="Email"/>
-    <input placeholder="Selected Time"/>
-    <button class="btn" style="width:100%">Confirm Booking</button>
-  </div>
-</div>
-
-<script>
-function openBooking(name){
-  document.getElementById("doctorName").innerText = "Book with " + name;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
-}
-</script>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+  © 2026 Psychology Services. All rights reserved.
+</footer>
 
 </body>
 </html>
