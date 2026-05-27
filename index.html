@@ -10,7 +10,7 @@
 <style>
 
 /* =========================
-   GLOBAL DARK THEME
+   GLOBAL LIGHT THEME
 ========================= */
 * {
   margin: 0;
@@ -20,12 +20,12 @@
 }
 
 body {
-  background: #0b0f14;
-  color: #e7e9ee;
+  background: #f6f8fb;
+  color: #1f2937;
   line-height: 1.6;
 }
 
-/* soft glowing background */
+/* soft background accents */
 body::before,
 body::after {
   content: "";
@@ -37,13 +37,13 @@ body::after {
 }
 
 body::before {
-  background: rgba(76,201,240,0.12);
+  background: rgba(120, 180, 200, 0.15);
   top: -150px;
   left: -150px;
 }
 
 body::after {
-  background: rgba(123,44,191,0.10);
+  background: rgba(180, 200, 255, 0.12);
   bottom: -150px;
   right: -150px;
 }
@@ -55,45 +55,48 @@ body::after {
 }
 
 /* =========================
-   HERO SECTION
+   HERO SECTION (LIGHT)
 ========================= */
 .hero {
   position: relative;
   padding: 140px 20px;
   text-align: center;
   overflow: hidden;
+  border-bottom: 1px solid #e5e7eb;
 }
 
+/* psychology-related banner image */
 .hero img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.25;
+  opacity: 0.18;
   z-index: -1;
-  filter: blur(2px);
+  filter: grayscale(10%) contrast(1.05);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11,15,20,0.6), rgba(11,15,20,0.95));
+  background: linear-gradient(180deg, rgba(246,248,251,0.4), rgba(246,248,251,0.95));
   z-index: -1;
 }
 
 .hero h1 {
-  font-size: 54px;
+  font-size: 52px;
   font-weight: 700;
-  max-width: 850px;
+  max-width: 900px;
   margin: auto;
+  color: #111827;
 }
 
 .hero p {
   margin-top: 20px;
   font-size: 18px;
-  color: #b8c0cc;
+  color: #4b5563;
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
@@ -104,7 +107,7 @@ body::after {
   margin-top: 30px;
   padding: 14px 28px;
   border-radius: 50px;
-  background: linear-gradient(135deg, #4cc9f0, #7b2cbf);
+  background: #2a6f6f;
   color: white;
   text-decoration: none;
   font-weight: 600;
@@ -112,6 +115,7 @@ body::after {
 }
 
 .btn:hover {
+  background: #1f5252;
   transform: translateY(-3px);
 }
 
@@ -122,10 +126,11 @@ body::after {
   text-align: center;
   font-size: 34px;
   margin: 70px 0 40px;
+  color: #111827;
 }
 
 /* =========================
-   STATS SECTION
+   STATS
 ========================= */
 .stats {
   display: grid;
@@ -135,16 +140,22 @@ body::after {
 }
 
 .stat {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: white;
+  border: 1px solid #e5e7eb;
   padding: 25px;
-  border-radius: 18px;
+  border-radius: 16px;
   text-align: center;
+  transition: 0.3s;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 .stat h2 {
   font-size: 32px;
-  color: #4cc9f0;
+  color: #2a6f6f;
 }
 
 /* =========================
@@ -161,20 +172,20 @@ body::after {
 }
 
 .card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: white;
+  border: 1px solid #e5e7eb;
   padding: 25px;
-  border-radius: 18px;
+  border-radius: 16px;
   transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(76,201,240,0.4);
+  border-color: #2a6f6f;
 }
 
 .card h3 {
-  color: #4cc9f0;
+  color: #2a6f6f;
   margin-bottom: 10px;
 }
 
@@ -192,8 +203,8 @@ body::after {
 }
 
 .profile {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: white;
+  border: 1px solid #e5e7eb;
   border-radius: 18px;
   overflow: hidden;
   transition: 0.3s;
@@ -201,6 +212,7 @@ body::after {
 
 .profile:hover {
   transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
 }
 
 .profile img {
@@ -214,9 +226,9 @@ body::after {
 }
 
 .price {
-  color: #4cc9f0;
-  margin-top: 10px;
+  color: #2a6f6f;
   font-weight: 600;
+  margin-top: 8px;
 }
 
 /* =========================
@@ -233,12 +245,12 @@ body::after {
 }
 
 .feedback {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: white;
+  border: 1px solid #e5e7eb;
   padding: 20px;
-  border-radius: 18px;
+  border-radius: 16px;
   font-style: italic;
-  color: #cfd6e1;
+  color: #4b5563;
 }
 
 /* =========================
@@ -258,10 +270,10 @@ input, textarea {
   width: 100%;
   padding: 12px;
   margin-bottom: 12px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  color: white;
+  background: white;
+  outline: none;
 }
 
 button {
@@ -269,10 +281,14 @@ button {
   padding: 12px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, #4cc9f0, #7b2cbf);
+  background: #2a6f6f;
   color: white;
   font-weight: 600;
   cursor: pointer;
+}
+
+button:hover {
+  background: #1f5252;
 }
 
 /* =========================
@@ -294,17 +310,21 @@ button {
 <body>
 
 <!-- =========================
-     HERO
+     HERO SECTION (LIGHT + PSYCHOLOGY IMAGE)
 ========================= -->
 <section class="hero">
-  <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1600&q=80" alt="">
-  <h1>Healing begins with understanding your mind</h1>
-  <p>Professional psychology services for anxiety, stress, relationships, and emotional recovery.</p>
+
+  <!-- More clinical psychology image -->
+  <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80" alt="therapy session">
+
+  <h1>Support for your mental well-being</h1>
+  <p>Professional psychological care for anxiety, stress, trauma, and emotional balance in a safe environment.</p>
   <a href="#contact" class="btn">Book a Session</a>
+
 </section>
 
 <!-- =========================
-     STATS SECTION
+     STATS
 ========================= -->
 <section class="container stats">
 
@@ -315,12 +335,12 @@ button {
 
   <div class="stat">
     <h2>87%</h2>
-    <p>Report improved well-being</p>
+    <p>Report improvement</p>
   </div>
 
   <div class="stat">
     <h2>10+ yrs</h2>
-    <p>Clinical experience</p>
+    <p>Experience</p>
   </div>
 
 </section>
@@ -336,22 +356,22 @@ button {
 
     <div class="card">
       <h3>Anxiety Therapy</h3>
-      <p>Reduce panic, worry, and emotional overload.</p>
+      <p>Reduce stress and regain emotional control.</p>
     </div>
 
     <div class="card">
       <h3>Depression Support</h3>
-      <p>Guided emotional recovery and motivation rebuilding.</p>
+      <p>Guided recovery and emotional stabilization.</p>
     </div>
 
     <div class="card">
-      <h3>Relationship Counseling</h3>
-      <p>Improve communication and emotional connection.</p>
+      <h3>Relationship Therapy</h3>
+      <p>Improve communication and connection.</p>
     </div>
 
     <div class="card">
       <h3>Trauma Healing</h3>
-      <p>Safe processing of past emotional experiences.</p>
+      <p>Safe processing of emotional experiences.</p>
     </div>
 
   </div>
@@ -371,7 +391,7 @@ button {
       <div class="profile-content">
         <h3>Dr. Anna Sargsyan</h3>
         <p>Mon–Wed | 10:00–14:00</p>
-        <p class="price">$60 / session</p>
+        <p class="price">$60 per session</p>
       </div>
     </div>
 
@@ -380,7 +400,7 @@ button {
       <div class="profile-content">
         <h3>Dr. Lilit Manukyan</h3>
         <p>Tue–Fri | 12:00–18:00</p>
-        <p class="price">$70 / session</p>
+        <p class="price">$70 per session</p>
       </div>
     </div>
 
@@ -389,7 +409,7 @@ button {
       <div class="profile-content">
         <h3>Dr. Arman Petrosyan</h3>
         <p>Mon–Sat | 09:00–15:00</p>
-        <p class="price">$80 / session</p>
+        <p class="price">$80 per session</p>
       </div>
     </div>
 
@@ -405,17 +425,9 @@ button {
 
   <div class="feedback-grid">
 
-    <div class="feedback">
-      “I finally feel lighter and more in control of my emotions.”
-    </div>
-
-    <div class="feedback">
-      “Therapy helped me understand myself in a deeper way.”
-    </div>
-
-    <div class="feedback">
-      “A safe and calming space. Highly recommended.”
-    </div>
+    <div class="feedback">“I feel calmer and more in control of my emotions.”</div>
+    <div class="feedback">“A safe space that truly helped me heal.”</div>
+    <div class="feedback">“Professional and deeply understanding therapists.”</div>
 
   </div>
 </section>
@@ -432,7 +444,7 @@ button {
     <div>
       <p>Email: support@mindcare.com</p>
       <p>Phone: +374 00 000 000</p>
-      <p>Response within 24 hours</p>
+      <p>We respond within 24 hours</p>
     </div>
 
     <div>
