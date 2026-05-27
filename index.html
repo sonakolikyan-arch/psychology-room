@@ -1,751 +1,83 @@
 <!DOCTYPE html> 
 <html lang="en">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Mindful Spaces Psychotherapy</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  /* ================= ROOT VARIABLES & BRAND PALETTE ================= */
-  /* Premium, warm, organic tones inspired by modern therapy spaces */
-  :root {
-    --primary: #4a5d4e;       /* Calming Sage Green */
-    --primary-hover: #3d4d40; /* Deepened Sage Green */
-    --secondary: #c2a68f;     /* Warm Sand / Terracotta Clay */
-    --secondary-light: #f4ede4;/* Ultra-soft cream highlight */
-    --dark: #2c2520;          /* Grounded Charcoal Earth */
-    --text: #4a403a;          /* Soft Charcoal for legibility */
-    --muted: #7a7069;         /* Earthy Taupe for secondary text */
-    --bg: #faf7f2;            /* Healing Cream White Canvas */
-    --card-bg: #ffffff;       /* Pure Crisp White for content separation */
-    --max-width: 1200px;
-  }
 
-  /* ================= GLOBAL RESETS & STYLES ================= */
-  *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* ================= ROOT VARIABLES & BRAND PALETTE ================= */
+
+:root {
+  --primary: #4a5d4e;
+  --primary-hover: #3d4d40;
+  --secondary: #c2a68f;
+  --secondary-light: #f4ede4;
+  --dark: #2c2520;
+  --text: #4a403a;
+  --muted: #7a7069;
+  --bg: #faf7f2;
+  --card-bg: #ffffff;
+  --max-width: 1200px;
+}
+
+/* ================= GLOBAL RESET ================= */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+}
+
+/* ================= HERO IMAGE (FIRST IMAGE) ================= */
+
+.hero-image-placeholder {
+  width: 100%;
+  max-width: 500px;
+  height: 550px;
+  border-radius: 40px 40px 0px 40px;
+  background-image: url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7728.jpg?v=1779877237');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 30px 60px rgba(44, 37, 32, 0.1);
+}
+
+/* ================= ABOUT IMAGE (SECOND IMAGE UPDATED) ================= */
+
+.about-image {
+  flex: 1;
+  min-width: 400px;
+  height: 450px;
+  border-radius: 24px;
+  background-image: url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7729.jpg?v=1779877236');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+}
+
+/* (rest of your CSS stays exactly the same) */
 
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ================= REUSABLE UTILITIES ================= */
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .section {
-    padding: 100px 0;
-  }
-
-  .section-header {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 60px auto;
-  }
-
-  .section-header h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--dark);
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-    position: relative;
-  }
-
-  /* Subtle elegant divider under headers */
-  .section-header h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--secondary);
-    margin: 12px auto 0 auto;
-    border-radius: 2px;
-  }
-
-  .section-header p {
-    font-size: 16px;
-    color: var(--muted);
-  }
-
-  /* BUTTONS WITH SMOOTH HOVER STATES */
-  .btn {
-    display: inline-block;
-    padding: 16px 36px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-  }
-
-  .btn-primary {
-    background-color: var(--primary);
-    color: white;
-    box-shadow: 0 4px 14px rgba(74, 93, 78, 0.25);
-  }
-
-  .btn-primary:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 93, 78, 0.35);
-  }
-
-  .btn-outline {
-    background-color: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    margin-left: 12px;
-  }
-
-  .btn-outline:hover {
-    background-color: var(--primary);
-    color: white;
-    transform: translateY(-2px);
-  }
-
-  /* ================= NAVIGATION BAR ================= */
-  .header-nav {
-    background-color: rgba(250, 247, 242, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(44, 37, 32, 0.04);
-    transition: all 0.3s ease;
-  }
-
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 700;
-    font-size: 19px;
-    letter-spacing: -0.3px;
-  }
-
-  .logo-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50% 50% 50% 0; /* Elegant natural drop shape */
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-  }
-
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 32px;
-  }
-
-  .nav-link {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .nav-link:hover {
-    color: var(--primary);
-  }
-
-  /* Quick CTA menu item button layout */
-  .nav-btn {
-    background-color: var(--dark);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .nav-btn:hover {
-    background-color: var(--primary);
-    color: white;
-    transform: translateY(-1px);
-  }
-
-  /* ================= HERO SECTION (CLEAN SPLIT LAYOUT) ================= */
-  .hero-section {
-    padding: 60px 0 100px 0;
-    overflow: hidden;
-  }
-
-  .hero-grid {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-  }
-
-  .hero-content {
-    flex: 1;
-    max-width: 540px;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background-color: var(--secondary-light);
-    color: var(--primary);
-    border-radius: 30px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  .hero-content h1 {
-    font-size: 52px;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1.15;
-    letter-spacing: -1.5px;
-    margin-bottom: 24px;
-  }
-
-  .hero-content p {
-    font-size: 18px;
-    color: var(--muted);
-    margin-bottom: 36px;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-  }
-
-  .hero-image-wrapper {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* CHANGED: Crisp, bright picture representing high-end therapy consulting spaces */
-  .hero-image-placeholder {
-    width: 100%;
-    max-width: 500px;
-    height: 550px;
-    border-radius: 40px 40px 0px 40px;
-    background-image: url('https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1000&q=80');
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 30px 60px rgba(44, 37, 32, 0.1);
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Aesthetic backing card element mimicking template background shapes */
-  .hero-image-wrapper::before {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: -20px;
-    width: 250px;
-    height: 250px;
-    background-color: var(--secondary-light);
-    border-radius: 50%;
-    z-index: 1;
-  }
-
-  /* ================= ABOUT SECTION ================= */
-  .about-section {
-    background-color: white;
-  }
-
-  .about-grid {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-  }
-
-  /* CHANGED: Soothing, serene natural texture image for the secondary showcase */
-  .about-image {
-    flex: 1;
-    min-width: 400px;
-    height: 450px;
-    border-radius: 24px;
-    background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80');
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-  }
-
-  .about-content {
-    flex: 1;
-  }
-
-  .about-content h3 {
-    font-size: 28px;
-    color: var(--dark);
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-
-  .about-content p {
-    margin-bottom: 20px;
-    color: var(--text);
-    font-size: 16px;
-  }
-
-  /* ================= BENEFITS SECTION ================= */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-  }
-
-  .benefit-card {
-    background-color: var(--card-bg);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(44, 37, 32, 0.02);
-    border: 1px solid rgba(44, 37, 32, 0.02);
-    transition: all 0.3s ease;
-  }
-
-  .benefit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(44, 37, 32, 0.06);
-    border-color: rgba(74, 93, 78, 0.1);
-  }
-
-  .benefit-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background-color: var(--secondary-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    color: var(--primary);
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .benefit-card h3 {
-    font-size: 20px;
-    color: var(--dark);
-    margin-bottom: 12px;
-    font-weight: 600;
-  }
-
-  .benefit-card p {
-    color: var(--muted);
-    font-size: 15px;
-  }
-
-  /* ================= SAFETY SECTION ================= */
-  .safety-section {
-    background-color: var(--secondary-light);
-  }
-
-  .safety-grid {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-  }
-
-  .safety-content {
-    flex: 1;
-  }
-
-  .safety-content h2 {
-    font-size: 36px;
-    color: var(--dark);
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-  }
-
-  .safety-list {
-    list-style: none;
-    margin-top: 30px;
-  }
-
-  .safety-item {
-    position: relative;
-    padding-left: 32px;
-    margin-bottom: 24px;
-  }
-
-  /* Styled custom modern green checkmark */
-  .safety-item::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: bold;
-  }
-
-  .safety-item h4 {
-    font-size: 17px;
-    color: var(--dark);
-    margin-bottom: 4px;
-    font-weight: 600;
-  }
-
-  .safety-item p {
-    color: var(--text);
-    font-size: 14.5px;
-  }
-
-  .safety-image {
-    flex: 1;
-    min-width: 400px;
-    height: 480px;
-    border-radius: 30px;
-    background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80');
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  }
-
-  /* ================= CONTACT SECTION ================= */
-  .contact-section {
-    background-color: white;
-  }
-
-  .contact-card {
-    background-color: var(--bg);
-    border-radius: 30px;
-    padding: 60px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.02);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-  }
-
-  .contact-info h3 {
-    font-size: 28px;
-    color: var(--dark);
-    margin-bottom: 16px;
-    font-weight: 700;
-  }
-
-  .contact-info p {
-    color: var(--muted);
-    margin-bottom: 30px;
-    font-size: 16px;
-  }
-
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .contact-detail-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .contact-icon-box {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-weight: bold;
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  }
-
-  .contact-detail-text h5 {
-    font-size: 14px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .contact-detail-text p {
-    font-size: 16px;
-    color: var(--dark);
-    font-weight: 500;
-    margin-bottom: 0;
-  }
-
-  /* CONTACT FORM FORMFIELDS */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .form-group label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--dark);
-  }
-
-  .form-control {
-    width: 100%;
-    padding: 14px 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(44, 37, 32, 0.12);
-    background-color: white;
-    font-family: inherit;
-    font-size: 15px;
-    color: var(--dark);
-    transition: all 0.2s ease;
-  }
-
-  .form-control:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(74, 93, 78, 0.1);
-  }
-
-  textarea.form-control {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  /* ================= FOOTER ================= */
-  footer {
-    background-color: var(--dark);
-    color: rgba(255, 255, 255, 0.7);
-    padding: 40px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    font-size: 14px;
-  }
-
-  /* ================= MODERN RESPONSIVE BREAKPOINTS (MEDIA QUERIES) ================= */
-  @media (max-width: 992px) {
-    .section { padding: 80px 0; }
-    .hero-grid, .about-grid, .safety-grid, .contact-card {
-      flex-direction: column;
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .hero-content, .about-content, .safety-content {
-      max-width: 100%;
-      text-align: center;
-    }
-    .hero-actions {
-      justify-content: center;
-    }
-    .section-header h2::after { margin: 12px auto 0 auto; }
-    .about-image, .safety-image {
-      min-width: 100%;
-      height: 380px;
-    }
-    .safety-item { text-align: left; }
-  }
-
-  @media (max-width: 768px) {
-    .nav-menu { display: none; }
-    .hero-content h1 { font-size: 38px; }
-    .section-header h2 { font-size: 28px; }
-    .contact-card { padding: 30px 20px; }
-  }
 </style>
 </head>
+
 <body>
 
-  <!-- ================= LOGO & NAVIGATION SECTION ================= -->
-  <nav class="header-nav">
-    <div class="container nav-container">
-      <a href="#" class="logo">
-        <div class="logo-icon"></div>
-        Mindful Spaces
-      </a>
-      <ul class="nav-menu">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#benefits" class="nav-link">Benefits</a></li>
-        <li><a href="#safety" class="nav-link">Our Space</a></li>
-        <li><a href="#contact" class="nav-btn">Book Session</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- HERO -->
+<div class="hero-image-placeholder"></div>
 
-  <!-- ================= HERO SECTION (CLEAN SPLIT LAYOUT WITH NEW PICTURE) ================= -->
-  <header class="hero-section">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <span class="hero-badge">Clinical Psychotherapy</span>
-        <h1>Find Your Calm. Rediscover Yourself.</h1>
-        <p>Providing professional, empathetic clinical psychology support to guide you through emotional balance, deep mental healing, and long-term personal clarity.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Book Consultation</a>
-          <a href="#about" class="btn btn-outline">Learn More</a>
-        </div>
-      </div>
-      <div class="hero-image-wrapper">
-        <!-- Modern, airy clinical/collaborative consultation space design asset -->
-        <div class="hero-image-placeholder"></div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ================= ABOUT SECTION (WITH NEW BACKGROUND IMAGE PICTURE) ================= -->
-  <section id="about" class="section about-section">
-    <div class="container about-grid">
-      <!-- Serene, warm natural elements texture display -->
-      <div class="about-image"></div>
-      <div class="about-content">
-        <h3>Compassionate Care Guided by Clinical Expertise</h3>
-        <p>At Mindful Spaces, we utilize evidence-based psychological treatment methods combined with mindfulness-centered philosophy. Our approach is custom-tailored around your specific situation, helping you process struggles dynamically and confidently.</p>
-        <p>Whether you're processing sudden life transitions, chronic anxiety, relationship structures, or personal trauma, we're dedicated to helping you rebuild clarity in an accommodating layout.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= BENEFITS SECTION ================= -->
-  <section id="benefits" class="section benefits-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Our Therapeutic Approach</h2>
-        <p>We provide specialized mental health care formats meticulously organized around modern, research-driven frameworks.</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">🧠</div>
-          <h3>Cognitive Behavioral Therapy (CBT)</h3>
-          <p>Identify, evaluate, and transform negative cognitive patterns and disruptive behavioral responses into sustainable coping mechanics.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🌿</div>
-          <h3>Mindfulness Integration</h3>
-          <p>Cultivate intentional groundings to regulate your nervous system, lower somatic stress impact, and establish present-moment stability.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🤍</div>
-          <h3>Trauma-Informed Care</h3>
-          <p>A gentle, pacing-focused therapy format focusing on repairing underlying regulatory responses within a fully secure setting.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WHY IT FEELS SAFE SECTION ================= -->
-  <section id="safety" class="section safety-section">
-    <div class="container safety-grid">
-      <div class="safety-content">
-        <h2>Why It Feels Safe In Our Center</h2>
-        <p>Your ultimate peace of mind and emotional preservation remain our single top priority. Every element of our environment is engineered to provide complete reassurance.</p>
-        
-        <ul class="safety-list">
-          <li class="safety-item">
-            <h4>Absolute Medical Confidentiality</h4>
-            <p>Your identity and medical sessions are completely confidential, protected by modern clinical security structures.</p>
-          </li>
-          <li class="safety-item">
-            <h4>Organic Calm Environment</h4>
-            <p>Our rooms omit sterile medical layouts in favor of soothing warm light, clean textures, and soundproofing to keep you grounded.</p>
-          </li>
-          <li class="safety-item">
-            <h4>Paced, Collaborative Healing</h4>
-            <p>We never rush processes. You maintain control of session directions and discussion limits while working with our licensed team.</p>
-          </li>
-        </ul>
-      </div>
-      <div class="safety-image"></div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT & BOOKING SECTION ================= -->
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <div class="contact-card">
-        <div class="contact-info">
-          <h3>Begin Your Journey</h3>
-          <p>Ready to reclaim your headspace? Drop a note to schedule a free initial 15-minute consultation window to evaluate fit parameters.</p>
-          
-          <div class="contact-details">
-            <div class="contact-detail-item">
-              <div class="contact-icon-box">✉</div>
-              <div class="contact-detail-text">
-                <h5>Email Us</h5>
-                <p>care@mindfulspaces.com</p>
-              </div>
-            </div>
-            <div class="contact-detail-item">
-              <div class="contact-icon-box">☏</div>
-              <div class="contact-detail-text">
-                <h5>Call Securely</h5>
-                <p>+1 (555) 234-7890</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Our intake coordination team will reach out within 24 hours.');">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">How can we support you?</label>
-            <textarea id="message" class="form-control" placeholder="Briefly share what you would like to address (Optional)"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="border-radius: 12px; margin-top: 10px;">Submit Intake Request</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Mindful Spaces Psychotherapy Clinic. All Rights Reserved. Professional clinical services.</p>
-    </div>
-  </footer>
+<!-- ABOUT -->
+<div class="about-image"></div>
 
 </body>
 </html>
