@@ -1,274 +1,366 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mindful Spaces Psychotherapy</title>
+<title>Mindful Spaces | Clinical Psychology</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --primary: #4a5d4e;
-    --primary-hover: #3d4d40;
-    --secondary: #c2a68f;
-    --secondary-light: #f4ede4;
-    --dark: #2c2520;
-    --text: #4a403a;
-    --muted: #7a7069;
-    --bg: #faf7f2;
-    --card-bg: #ffffff;
-    --max-width: 1200px;
+/* ===========================
+   PREMIUM APPLE-STYLE SYSTEM
+=========================== */
+
+:root{
+  --bg:#f6f5f2;
+  --card: rgba(255,255,255,0.7);
+  --text:#1d1d1f;
+  --muted:#6e6e73;
+  --line:rgba(0,0,0,0.08);
+  --accent:#2f5d50;
+  --accent-soft:#dfe9e4;
+  --shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Inter, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* smooth feel */
+html{scroll-behavior:smooth;}
+
+/* ================= NAV ================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  backdrop-filter: blur(20px);
+  background: rgba(246,245,242,0.6);
+  border-bottom:1px solid var(--line);
+  z-index:1000;
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:600;
+  letter-spacing:-0.5px;
+}
+
+.nav a{
+  margin-left:24px;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.nav a:hover{color:var(--text);}
+
+/* ================= HERO ================= */
+.hero{
+  padding:140px 24px 80px;
+}
+
+.hero-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 14px;
+  background:var(--accent-soft);
+  color:var(--accent);
+  border-radius:999px;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+h1{
+  font-size:54px;
+  letter-spacing:-1.5px;
+  line-height:1.05;
+}
+
+.hero p{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.cta{
+  margin-top:30px;
+  display:flex;
+  gap:12px;
+}
+
+.btn{
+  padding:12px 18px;
+  border-radius:999px;
+  font-size:14px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn.primary{
+  background:var(--text);
+  color:white;
+}
+
+.btn.primary:hover{
+  transform:scale(1.03);
+}
+
+.btn.secondary:hover{
+  background:white;
+}
+
+/* HERO IMAGE */
+.hero-img{
+  height:520px;
+  border-radius:30px;
+  background-image:url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7728.jpg?v=1779877237');
+  background-size:cover;
+  background-position:center;
+  box-shadow:var(--shadow);
+}
+
+/* ================= ABOUT ================= */
+.section{
+  padding:90px 24px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-img{
+  height:420px;
+  border-radius:24px;
+  background-image:url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7729.jpg?v=1779877236');
+  background-size:cover;
+  background-position:center;
+  box-shadow:var(--shadow);
+}
+
+h2{
+  font-size:34px;
+  letter-spacing:-1px;
+}
+
+p{color:var(--muted);margin-top:14px;}
+
+/* ================= PSYCHOLOGISTS ================= */
+.psych-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:40px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  backdrop-filter: blur(10px);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+}
+
+.card-img{
+  height:220px;
+  background-size:cover;
+  background-position:center;
+}
+
+.card-info{
+  padding:18px;
+}
+
+.card-info h3{
+  font-size:16px;
+}
+
+.card-info span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ================= CONTACT ================= */
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  background:white;
+  padding:60px;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  font-family:inherit;
+}
+
+textarea{min-height:120px;}
+
+/* ================= ANIMATION ================= */
+.fade{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero-grid,.about,.contact{
+    grid-template-columns:1fr;
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
+  .psych-grid{
+    grid-template-columns:1fr;
   }
 
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .section { padding: 100px 0; }
-
-  /* NAV */
-  .header-nav {
-    background-color: rgba(250,247,242,0.85);
-    backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .nav-container {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    height:80px;
-  }
-
-  .logo { font-weight:700; text-decoration:none; color:var(--dark); }
-
-  .nav-menu {
-    display:flex;
-    gap:30px;
-    list-style:none;
-  }
-
-  .nav-link { text-decoration:none; color:var(--text); }
-
-  /* HERO */
-  .hero-grid {
-    display:flex;
-    align-items:center;
-    gap:60px;
-  }
-
-  .hero-content { flex:1; }
-
-  .hero-content h1 {
-    font-size:52px;
-    color:var(--dark);
-  }
-
-  .hero-image-placeholder {
-    width:100%;
-    max-width:500px;
-    height:550px;
-    border-radius:40px;
-    background-image:url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7728.jpg?v=1779877237');
-    background-size:cover;
-    background-position:center;
-  }
-
-  /* ABOUT IMAGE UPDATED (SECOND PICTURE) */
-  .about-image {
-    flex:1;
-    height:450px;
-    border-radius:24px;
-    background-image:url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7729.jpg?v=1779877236');
-    background-size:cover;
-    background-position:center;
-  }
-
-  .about-grid {
-    display:flex;
-    gap:80px;
-    align-items:center;
-  }
-
-  /* BENEFITS */
-  .benefits-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-  }
-
-  .benefit-card {
-    background:white;
-    padding:40px;
-    border-radius:20px;
-  }
-
-  /* ================= PSYCHOLOGISTS SECTION ================= */
-  .psychologists-section {
-    background:white;
-  }
-
-  .psych-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-  }
-
-  .psych-card {
-    background:var(--card-bg);
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.05);
-    transition:0.3s;
-  }
-
-  .psych-card:hover {
-    transform:translateY(-5px);
-  }
-
-  .psych-img {
-    height:220px;
-    background-size:cover;
-    background-position:center;
-  }
-
-  .psych-info {
-    padding:20px;
-    text-align:center;
-  }
-
-  .psych-info h4 {
-    color:var(--dark);
-    margin-bottom:5px;
-  }
-
-  .psych-info p {
-    font-size:14px;
-    color:var(--muted);
-  }
-
-  /* CONTACT */
-  .contact-card {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    background:white;
-    padding:60px;
-    border-radius:30px;
-  }
-
-  @media(max-width:900px){
-    .hero-grid,
-    .about-grid,
-    .contact-card {
-      flex-direction:column;
-      grid-template-columns:1fr;
-    }
-  }
-
+  h1{font-size:38px;}
+}
 </style>
 </head>
 
 <body>
 
-<nav class="header-nav">
-  <div class="container nav-container">
-    <a class="logo">Mindful Spaces</a>
-    <ul class="nav-menu">
-      <li><a class="nav-link" href="#about">About</a></li>
-      <li><a class="nav-link" href="#psychologists">Psychologists</a></li>
-      <li><a class="nav-link" href="#contact">Contact</a></li>
-    </ul>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Mindful Spaces</div>
+    <div class="nav">
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </nav>
 
-<header class="hero-section">
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <h1>Find Your Calm. Rediscover Yourself.</h1>
-      <p>Professional psychotherapy support for emotional healing and clarity.</p>
-    </div>
-    <div class="hero-image-placeholder"></div>
-  </div>
-</header>
-
-<section id="about" class="section about-section">
-  <div class="container about-grid">
-    <div class="about-image"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid fade">
     <div>
-      <h2>About Us</h2>
-      <p>We provide evidence-based therapy tailored to your needs.</p>
+      <span class="badge">Clinical Psychology</span>
+      <h1>Find calm in a world that never slows down.</h1>
+      <p>Modern psychotherapy designed with science, empathy, and silence — built for deep emotional recovery.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Book Session</a>
+        <a class="btn secondary" href="#about">Explore</a>
+      </div>
+    </div>
+    <div class="hero-img"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container about fade">
+    <div class="about-img"></div>
+    <div>
+      <h2>Modern therapy, human-centered care.</h2>
+      <p>We combine clinical psychology, CBT, trauma-informed care, and mindfulness into a structured but deeply personal healing experience.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= PSYCHOLOGISTS SECTION (6 PEOPLE) ================= -->
-<section id="psychologists" class="section psychologists-section">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:50px;">Our Psychologists</h2>
+<!-- PSYCHOLOGISTS -->
+<section id="team" class="section">
+  <div class="container fade">
+    <h2>Our Psychologists</h2>
 
     <div class="psych-grid">
 
-      <div class="psych-card">
-        <div class="psych-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2');"></div>
-        <div class="psych-info"><h4>Dr. Anna Smith</h4><p>Clinical Psychologist</p></div>
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2');"></div>
+        <div class="card-info"><h3>Dr. Anna Smith</h3><span>Clinical Psychologist</span></div>
       </div>
 
-      <div class="psych-card">
-        <div class="psych-img" style="background-image:url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8');"></div>
-        <div class="psych-info"><h4>Dr. John Miller</h4><p>CBT Specialist</p></div>
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8');"></div>
+        <div class="card-info"><h3>Dr. John Miller</h3><span>CBT Specialist</span></div>
       </div>
 
-      <div class="psych-card">
-        <div class="psych-img" style="background-image:url('https://images.unsplash.com/photo-1554151228-14d9def656e4');"></div>
-        <div class="psych-info"><h4>Dr. Emily Davis</h4><p>Trauma Therapist</p></div>
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2');"></div>
+        <div class="card-info"><h3>Dr. Emily Davis</h3><span>Trauma Therapist</span></div>
       </div>
 
-      <div class="psych-card">
-        <div class="psych-img" style="background-image:url('https://images.unsplash.com/photo-1537368910025-700350fe46c7');"></div>
-        <div class="psych-info"><h4>Dr. Mark Wilson</h4><p>Family Therapist</p></div>
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1537368910025-700350fe46c7');"></div>
+        <div class="card-info"><h3>Dr. Mark Wilson</h3><span>Family Therapist</span></div>
       </div>
 
-      <div class="psych-card">
-        <div class="psych-img" style="background-image:url('https://images.unsplash.com/photo-1544723795-3fb6469f5b39');"></div>
-        <div class="psych-info"><h4>Dr. Sarah Johnson</h4><p>Mindfulness Expert</p></div>
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1544723795-3fb6469f5b39');"></div>
+        <div class="card-info"><h3>Dr. Sarah Johnson</h3><span>Mindfulness Expert</span></div>
       </div>
 
-      <div class="psych-card">
-        <div class="psych-img" style="background-image:url('https://images.unsplash.com/photo-1546456073-6712f79251bb');"></div>
-        <div class="psych-info"><h4>Dr. David Brown</h4><p>Clinical Psychologist</p></div>
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1546456073-6712f79251bb');"></div>
+        <div class="card-info"><h3>Dr. David Brown</h3><span>Clinical Psychologist</span></div>
       </div>
 
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section">
-  <div class="container contact-card">
+  <div class="container contact fade">
+
     <div>
-      <h2>Contact Us</h2>
-      <p>Book your consultation today.</p>
+      <h2>Start your healing journey</h2>
+      <p>Book a confidential consultation with our clinical team.</p>
     </div>
 
     <form>
-      <input placeholder="Name" />
-      <input placeholder="Email" />
+      <input placeholder="Name"/>
+      <input placeholder="Email"/>
       <textarea placeholder="Message"></textarea>
     </form>
+
   </div>
 </section>
 
