@@ -1,4 +1,4 @@
-html_content = """<!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -7,11 +7,11 @@ html_content = """<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ================= ROOT VARIABLES & BRAND PALETTE ================= */
-  /* Using premium, warm, organic tones inspired by modern therapy spaces */
+  /* Premium, warm, organic tones inspired by modern therapy spaces */
   :root {
     --primary: #4a5d4e;       /* Calming Sage Green */
     --primary-hover: #3d4d40; /* Deepened Sage Green */
-    --secondary: #c2a68f;     /* Warm Sand / Teracotta Clay */
+    --secondary: #c2a68f;     /* Warm Sand / Terracotta Clay */
     --secondary-light: #f4ede4;/* Ultra-soft cream highlight */
     --dark: #2c2520;          /* Grounded Charcoal Earth */
     --text: #4a403a;          /* Soft Charcoal for legibility */
@@ -251,13 +251,13 @@ html_content = """<!DOCTYPE html>
     justify-content: center;
   }
 
-  /* Crisp placeholder visual styling representing high-end clinic */
+  /* CHANGED: Crisp, bright picture representing high-end therapy consulting spaces */
   .hero-image-placeholder {
     width: 100%;
     max-width: 500px;
     height: 550px;
     border-radius: 40px 40px 0px 40px;
-    background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80');
+    background-image: url('https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-position: center;
     box-shadow: 0 30px 60px rgba(44, 37, 32, 0.1);
@@ -289,13 +289,13 @@ html_content = """<!DOCTYPE html>
     gap: 80px;
   }
 
+  /* CHANGED: Soothing, serene natural texture image for the secondary showcase */
   .about-image {
     flex: 1;
-    height: 48px;
     min-width: 400px;
     height: 450px;
     border-radius: 24px;
-    background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80');
+    background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-position: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.03);
@@ -585,7 +585,7 @@ html_content = """<!DOCTYPE html>
   }
 
   @media (max-width: 768px) {
-    .nav-menu { display: none; } /* Kept clean for simple pure CSS repository presentation */
+    .nav-menu { display: none; }
     .hero-content h1 { font-size: 38px; }
     .section-header h2 { font-size: 28px; }
     .contact-card { padding: 30px 20px; }
@@ -594,6 +594,7 @@ html_content = """<!DOCTYPE html>
 </head>
 <body>
 
+  <!-- ================= LOGO & NAVIGATION SECTION ================= -->
   <nav class="header-nav">
     <div class="container nav-container">
       <a href="#" class="logo">
@@ -609,6 +610,7 @@ html_content = """<!DOCTYPE html>
     </div>
   </nav>
 
+  <!-- ================= HERO SECTION (CLEAN SPLIT LAYOUT WITH NEW PICTURE) ================= -->
   <header class="hero-section">
     <div class="container hero-grid">
       <div class="hero-content">
@@ -621,13 +623,16 @@ html_content = """<!DOCTYPE html>
         </div>
       </div>
       <div class="hero-image-wrapper">
+        <!-- Modern, airy clinical/collaborative consultation space design asset -->
         <div class="hero-image-placeholder"></div>
       </div>
     </div>
   </header>
 
+  <!-- ================= ABOUT SECTION (WITH NEW BACKGROUND IMAGE PICTURE) ================= -->
   <section id="about" class="section about-section">
     <div class="container about-grid">
+      <!-- Serene, warm natural elements texture display -->
       <div class="about-image"></div>
       <div class="about-content">
         <h3>Compassionate Care Guided by Clinical Expertise</h3>
@@ -637,6 +642,7 @@ html_content = """<!DOCTYPE html>
     </div>
   </section>
 
+  <!-- ================= BENEFITS SECTION ================= -->
   <section id="benefits" class="section benefits-section">
     <div class="container">
       <div class="section-header">
@@ -663,6 +669,7 @@ html_content = """<!DOCTYPE html>
     </div>
   </section>
 
+  <!-- ================= WHY IT FEELS SAFE SECTION ================= -->
   <section id="safety" class="section safety-section">
     <div class="container safety-grid">
       <div class="safety-content">
@@ -688,6 +695,7 @@ html_content = """<!DOCTYPE html>
     </div>
   </section>
 
+  <!-- ================= CONTACT & BOOKING SECTION ================= -->
   <section id="contact" class="section contact-section">
     <div class="container">
       <div class="contact-card">
@@ -732,6 +740,7 @@ html_content = """<!DOCTYPE html>
     </div>
   </section>
 
+  <!-- ================= FOOTER ================= -->
   <footer>
     <div class="container">
       <p>&copy; 2026 Mindful Spaces Psychotherapy Clinic. All Rights Reserved. Professional clinical services.</p>
@@ -740,8 +749,3 @@ html_content = """<!DOCTYPE html>
 
 </body>
 </html>
-"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-print("File successfully generated.")
