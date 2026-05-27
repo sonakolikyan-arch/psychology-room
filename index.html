@@ -8,10 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===========================
-   PREMIUM APPLE-STYLE SYSTEM
-=========================== */
-
 :root{
   --bg:#f6f5f2;
   --card: rgba(255,255,255,0.7);
@@ -31,11 +27,9 @@ body{
   line-height:1.6;
   overflow-x:hidden;
 }
-
-/* smooth feel */
 html{scroll-behavior:smooth;}
 
-/* ================= NAV ================= */
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -55,10 +49,7 @@ nav{
   align-items:center;
 }
 
-.logo{
-  font-weight:600;
-  letter-spacing:-0.5px;
-}
+.logo{font-weight:600;}
 
 .nav a{
   margin-left:24px;
@@ -67,13 +58,8 @@ nav{
   font-size:14px;
 }
 
-.nav a:hover{color:var(--text);}
-
-/* ================= HERO ================= */
-.hero{
-  padding:140px 24px 80px;
-}
-
+/* HERO */
+.hero{padding:140px 24px 80px;}
 .hero-grid{
   max-width:1200px;
   margin:auto;
@@ -83,100 +69,23 @@ nav{
   align-items:center;
 }
 
-.badge{
-  display:inline-block;
-  padding:6px 14px;
-  background:var(--accent-soft);
-  color:var(--accent);
-  border-radius:999px;
-  font-size:12px;
-  margin-bottom:18px;
-}
+h1{font-size:54px;line-height:1.05;}
+p{color:var(--muted);margin-top:14px;}
 
-h1{
-  font-size:54px;
-  letter-spacing:-1.5px;
-  line-height:1.05;
-}
-
-.hero p{
-  margin-top:18px;
-  color:var(--muted);
-  font-size:18px;
-}
-
-.cta{
-  margin-top:30px;
-  display:flex;
-  gap:12px;
-}
-
-.btn{
-  padding:12px 18px;
-  border-radius:999px;
-  font-size:14px;
-  border:1px solid var(--line);
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.btn.primary{
-  background:var(--text);
-  color:white;
-}
-
-.btn.primary:hover{
-  transform:scale(1.03);
-}
-
-.btn.secondary:hover{
-  background:white;
-}
-
-/* HERO IMAGE */
 .hero-img{
   height:520px;
   border-radius:30px;
-  background-image:url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7728.jpg?v=1779877237');
+  background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56');
   background-size:cover;
   background-position:center;
   box-shadow:var(--shadow);
 }
 
-/* ================= ABOUT ================= */
-.section{
-  padding:90px 24px;
-}
+/* SECTION */
+.section{padding:90px 24px;}
+.container{max-width:1100px;margin:auto;}
 
-.container{
-  max-width:1100px;
-  margin:auto;
-}
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.about-img{
-  height:420px;
-  border-radius:24px;
-  background-image:url('https://cdn.shopify.com/s/files/1/0767/2279/8744/files/IMG_7729.jpg?v=1779877236');
-  background-size:cover;
-  background-position:center;
-  box-shadow:var(--shadow);
-}
-
-h2{
-  font-size:34px;
-  letter-spacing:-1px;
-}
-
-p{color:var(--muted);margin-top:14px;}
-
-/* ================= PSYCHOLOGISTS ================= */
+/* PSYCHOLOGISTS */
 .psych-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -204,62 +113,22 @@ p{color:var(--muted);margin-top:14px;}
   background-position:center;
 }
 
-.card-info{
-  padding:18px;
-}
+.card-info{padding:18px;}
 
-.card-info h3{
-  font-size:16px;
-}
+.card-info h3{font-size:16px;}
+.card-info span{font-size:13px;color:var(--muted);display:block;margin-top:2px;}
 
-.card-info span{
-  font-size:13px;
-  color:var(--muted);
-}
-
-/* ================= CONTACT ================= */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  background:white;
-  padding:60px;
-  border-radius:30px;
-  box-shadow:var(--shadow);
-}
-
-input,textarea{
-  width:100%;
-  padding:14px;
+.meta{
   margin-top:10px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  font-family:inherit;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.6;
 }
 
-textarea{min-height:120px;}
-
-/* ================= ANIMATION ================= */
-.fade{
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp 0.8s ease forwards;
-}
-
-@keyframes fadeUp{
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media(max-width:900px){
-  .hero-grid,.about,.contact{
-    grid-template-columns:1fr;
-  }
-
-  .psych-grid{
-    grid-template-columns:1fr;
-  }
-
+  .hero-grid{grid-template-columns:1fr;}
+  .psych-grid{grid-template-columns:1fr;}
   h1{font-size:38px;}
 }
 </style>
@@ -280,87 +149,101 @@ textarea{min-height:120px;}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-grid fade">
+  <div class="hero-grid">
     <div>
-      <span class="badge">Clinical Psychology</span>
       <h1>Find calm in a world that never slows down.</h1>
       <p>Modern psychotherapy designed with science, empathy, and silence — built for deep emotional recovery.</p>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Book Session</a>
-        <a class="btn secondary" href="#about">Explore</a>
-      </div>
     </div>
     <div class="hero-img"></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="container about fade">
-    <div class="about-img"></div>
-    <div>
-      <h2>Modern therapy, human-centered care.</h2>
-      <p>We combine clinical psychology, CBT, trauma-informed care, and mindfulness into a structured but deeply personal healing experience.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PSYCHOLOGISTS -->
+<!-- TEAM -->
 <section id="team" class="section">
-  <div class="container fade">
+  <div class="container">
     <h2>Our Psychologists</h2>
 
     <div class="psych-grid">
 
       <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f');"></div>
+        <div class="card-info">
+          <h3>Dr. Anna Smith</h3>
+          <span>Clinical Psychologist</span>
+          <div class="meta">
+            Experience: 10+ years<br>
+            Availability: Mon–Fri 10:00–17:00<br>
+            Price: $85 / session
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1614283233556-f35b0c801ef1');"></div>
+        <div class="card-info">
+          <h3>Dr. John Miller</h3>
+          <span>Cognitive Behavioral Therapist</span>
+          <div class="meta">
+            Experience: 8+ years<br>
+            Availability: Tue–Sat 11:00–19:00<br>
+            Price: $75 / session
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1622253692010-333f2da6031d');"></div>
+        <div class="card-info">
+          <h3>Dr. Emily Davis</h3>
+          <span>Trauma Specialist</span>
+          <div class="meta">
+            Experience: 12+ years<br>
+            Availability: Mon–Thu 09:00–16:00<br>
+            Price: $95 / session
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');"></div>
+        <div class="card-info">
+          <h3>Dr. Mark Wilson</h3>
+          <span>Family Therapist</span>
+          <div class="meta">
+            Experience: 7+ years<br>
+            Availability: Mon–Fri 12:00–20:00<br>
+            Price: $70 / session
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1582750433449-648ed127bb54');"></div>
+        <div class="card-info">
+          <h3>Dr. Sarah Johnson</h3>
+          <span>Mindfulness Expert</span>
+          <div class="meta">
+            Experience: 9+ years<br>
+            Availability: Wed–Sun 10:00–18:00<br>
+            Price: $80 / session
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
         <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2');"></div>
-        <div class="card-info"><h3>Dr. Anna Smith</h3><span>Clinical Psychologist</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8');"></div>
-        <div class="card-info"><h3>Dr. John Miller</h3><span>CBT Specialist</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2');"></div>
-        <div class="card-info"><h3>Dr. Emily Davis</h3><span>Trauma Therapist</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1537368910025-700350fe46c7');"></div>
-        <div class="card-info"><h3>Dr. Mark Wilson</h3><span>Family Therapist</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1544723795-3fb6469f5b39');"></div>
-        <div class="card-info"><h3>Dr. Sarah Johnson</h3><span>Mindfulness Expert</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1546456073-6712f79251bb');"></div>
-        <div class="card-info"><h3>Dr. David Brown</h3><span>Clinical Psychologist</span></div>
+        <div class="card-info">
+          <h3>Dr. David Brown</h3>
+          <span>Clinical Psychologist</span>
+          <div class="meta">
+            Experience: 11+ years<br>
+            Availability: Mon–Fri 09:00–17:00<br>
+            Price: $90 / session
+          </div>
+        </div>
       </div>
 
     </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container contact fade">
-
-    <div>
-      <h2>Start your healing journey</h2>
-      <p>Book a confidential consultation with our clinical team.</p>
-    </div>
-
-    <form>
-      <input placeholder="Name"/>
-      <input placeholder="Email"/>
-      <textarea placeholder="Message"></textarea>
-    </form>
-
   </div>
 </section>
 
