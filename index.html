@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Psychology Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MindCare Psychology Services</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* =========================
-   GLOBAL STYLES
+   GLOBAL STYLES (DARK MODE)
 ========================= */
 * {
   margin: 0;
@@ -20,12 +21,35 @@
 }
 
 body {
-  background: #f6f8fb;
-  color: #1d1d1f;
+  background: #0b0f14;
+  color: #e7e9ee;
   line-height: 1.6;
 }
 
-/* Smooth container */
+/* soft glow background effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(76,201,240,0.15), transparent 60%);
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(172,147,255,0.12), transparent 60%);
+  z-index: -1;
+}
+
+/* container */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -36,52 +60,55 @@ body {
    HERO SECTION
 ========================= */
 .hero {
-  background: linear-gradient(135deg, #eaf4f4, #f6f8fb);
-  padding: 100px 20px;
+  padding: 120px 20px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 54px;
   font-weight: 700;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  font-size: 18px;
   margin-top: 20px;
-  color: #555;
-  max-width: 600px;
+  font-size: 18px;
+  color: #b8c0cc;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero .btn {
+/* CTA button */
+.btn {
   display: inline-block;
   margin-top: 30px;
   padding: 14px 28px;
-  background: #2a6f6f;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #4cc9f0, #7b2cbf);
   color: white;
-  border-radius: 30px;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
   transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(76, 201, 240, 0.15);
 }
 
-.hero .btn:hover {
-  background: #1f5252;
-  transform: translateY(-2px);
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(123, 44, 191, 0.25);
 }
 
 /* =========================
-   SECTION TITLE
+   SECTION TITLES
 ========================= */
 .section-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 50px;
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 /* =========================
@@ -94,24 +121,21 @@ body {
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+  gap: 30px;
 }
 
-.about p {
-  color: #555;
-}
-
-.about-box {
-  background: white;
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: 0.3s;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
 }
 
-.about-box:hover {
-  transform: translateY(-5px);
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(76,201,240,0.4);
 }
 
 /* =========================
@@ -127,23 +151,22 @@ body {
   gap: 20px;
 }
 
-.feature-card {
-  background: white;
+.feature {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: 0.3s;
+  border-radius: 18px;
+  transition: 0.3s ease;
 }
 
-.feature-card:hover {
+.feature:hover {
   transform: translateY(-6px);
-  background: #f0f7f7;
+  border-color: rgba(123,44,191,0.4);
 }
 
-.feature-card h3 {
+.feature h3 {
   margin-bottom: 10px;
-  color: #2a6f6f;
+  color: #4cc9f0;
 }
 
 /* =========================
@@ -151,47 +174,58 @@ body {
 ========================= */
 .contact {
   padding: 80px 20px;
-  background: #eaf4f4;
-  border-radius: 20px;
 }
 
 .contact-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
 }
 
-.contact-info p {
+.info {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 18px;
+}
+
+.info p {
   margin-bottom: 10px;
-  color: #444;
+  color: #b8c0cc;
 }
 
-.contact-form {
+form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.contact-form input,
-.contact-form textarea {
+input, textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 12px;
+  color: white;
   outline: none;
 }
 
-.contact-form button {
-  padding: 12px;
-  border: none;
-  background: #2a6f6f;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+input:focus, textarea:focus {
+  border-color: #4cc9f0;
 }
 
-.contact-form button:hover {
-  background: #1f5252;
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4cc9f0, #7b2cbf);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
 }
 
 /* =========================
@@ -199,9 +233,9 @@ body {
 ========================= */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 40px;
+  color: #7a8596;
   font-size: 14px;
-  color: #777;
 }
 
 /* =========================
@@ -210,7 +244,7 @@ footer {
 @media (max-width: 768px) {
 
   .hero h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .about-grid,
@@ -218,6 +252,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 </style>
 </head>
 
@@ -225,33 +260,39 @@ footer {
 
 <!-- =========================
      HERO SECTION
+     Emotional psychological branding
 ========================= -->
 <section class="hero">
-  <h1>Professional Psychology Services for a Healthier Mind</h1>
-  <p>Support for anxiety, stress, relationships, and emotional well-being — in a safe and understanding space.</p>
-  <a href="#contact" class="btn">Book a Consultation</a>
+  <h1>Find clarity in the noise of your mind</h1>
+  <p>
+    A safe, confidential space for healing anxiety, stress, relationships, and emotional burnout.
+    Professional psychological support designed around you.
+  </p>
+  <a href="#contact" class="btn">Start Your Healing Journey</a>
 </section>
 
 <!-- =========================
      ABOUT SECTION
 ========================= -->
 <section class="about container">
-  <h2 class="section-title">About Our Practice</h2>
+  <h2 class="section-title">A space built for emotional safety</h2>
 
   <div class="about-grid">
-    <div class="about-box">
+
+    <div class="card">
       <p>
-        We provide a safe, supportive environment where you can explore your thoughts and emotions freely.
-        Our goal is to help you understand yourself better and build emotional resilience.
+        Therapy is not about fixing you — it’s about understanding yourself.
+        We provide a calm, structured environment where your thoughts are heard without judgment.
       </p>
     </div>
 
-    <div class="about-box">
+    <div class="card">
       <p>
-        Our approach is client-centered, compassionate, and evidence-based. We believe healing happens
-        through trust, conversation, and personalized care.
+        Our approach blends evidence-based psychology with deep human empathy.
+        Every session is personalized to your emotional needs and pace.
       </p>
     </div>
+
   </div>
 </section>
 
@@ -259,28 +300,30 @@ footer {
      FEATURES SECTION
 ========================= -->
 <section class="features container">
-  <h2 class="section-title">What We Help With</h2>
+  <h2 class="section-title">How we help you</h2>
 
   <div class="feature-grid">
-    <div class="feature-card">
-      <h3>Anxiety & Stress</h3>
-      <p>Learn techniques to manage worry, panic, and everyday stress.</p>
+
+    <div class="feature">
+      <h3>Anxiety Relief</h3>
+      <p>Learn grounding techniques and regain emotional control.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>Depression Support</h3>
-      <p>Guidance through emotional lows and recovery strategies.</p>
+    <div class="feature">
+      <h3>Emotional Burnout</h3>
+      <p>Recover from exhaustion and rebuild inner balance.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>Relationships</h3>
+    <div class="feature">
+      <h3>Relationship Healing</h3>
       <p>Improve communication and emotional connection.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>Self-Esteem</h3>
-      <p>Build confidence and a healthier self-image.</p>
+    <div class="feature">
+      <h3>Self Understanding</h3>
+      <p>Develop clarity, identity, and self-awareness.</p>
     </div>
+
   </div>
 </section>
 
@@ -288,24 +331,24 @@ footer {
      CONTACT SECTION
 ========================= -->
 <section class="contact container" id="contact">
-  <h2 class="section-title">Contact Us</h2>
+  <h2 class="section-title">Begin your first session</h2>
 
   <div class="contact-box">
 
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <p><strong>Email:</strong> support@psychologycare.com</p>
+    <!-- Contact Information -->
+    <div class="info">
+      <p><strong>Email:</strong> support@mindcare.com</p>
       <p><strong>Phone:</strong> +374 00 000 000</p>
-      <p><strong>Hours:</strong> Mon - Fri, 10:00 - 18:00</p>
-      <p>We usually respond within 24 hours.</p>
+      <p><strong>Availability:</strong> Mon–Sat, 10:00 – 19:00</p>
+      <p>We respond within 24 hours with full confidentiality.</p>
     </div>
 
-    <!-- Contact Form (static, no JS) -->
-    <form class="contact-form">
+    <!-- Contact Form -->
+    <form>
       <input type="text" placeholder="Your Name">
       <input type="email" placeholder="Your Email">
-      <textarea rows="5" placeholder="Your Message"></textarea>
-      <button type="button">Send Message</button>
+      <textarea rows="5" placeholder="How are you feeling?"></textarea>
+      <button type="button">Request Appointment</button>
     </form>
 
   </div>
@@ -315,7 +358,7 @@ footer {
      FOOTER
 ========================= -->
 <footer>
-  © 2026 Psychology Services. All rights reserved.
+  © 2026 MindCare Psychology Services. All rights reserved.
 </footer>
 
 </body>
