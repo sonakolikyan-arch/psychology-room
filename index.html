@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Psychology Services</title>
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       GLOBAL STYLES
+    ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f7f9fc;
+      color: #1f2a37;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================= */
+    .hero {
+      background: linear-gradient(135deg, #e8f0ff, #f7f9fc);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #4b5563;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #4f46e5;
+      color: #fff;
+      border-radius: 10px;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .cta-btn:hover {
+      background: #3730a3;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       SECTION CONTAINER
+    ========================= */
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    /* =========================
+       ABOUT SECTION
+    ========================= */
+    .about p {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+      color: #4b5563;
+    }
+
+    /* =========================
+       FEATURES SECTION
+    ========================= */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .feature-card p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CONTACT SECTION
+    ========================= */
+    .contact {
+      text-align: center;
+    }
+
+    .contact-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      color: #4b5563;
+    }
+
+    .contact-box strong {
+      color: #111827;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================= */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+  <header class="hero">
+    <h1>Find Balance & Clarity</h1>
+    <p>Professional psychology services designed to help you improve your mental well-being, reduce stress, and build a healthier mindset.</p>
+    <a href="#contact" class="cta-btn">Book a Consultation</a>
+  </header>
+
+  <!-- =========================
+       ABOUT SECTION
+  ========================== -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      We provide supportive, confidential, and evidence-based psychology services. 
+      Our mission is to help individuals understand themselves better, overcome challenges, 
+      and build emotional resilience in a safe environment.
+    </p>
+  </section>
+
+  <!-- =========================
+       FEATURES SECTION
+  ========================== -->
+  <section>
+    <h2>Our Services</h2>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>Individual Therapy</h3>
+        <p>Personal sessions tailored to your emotional and mental health needs.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Stress Management</h3>
+        <p>Learn practical techniques to reduce anxiety and improve daily focus.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Relationship Support</h3>
+        <p>Improve communication and strengthen your relationships.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Personal Growth</h3>
+        <p>Develop self-awareness and build a more confident mindset.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CONTACT SECTION
+  ========================== -->
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+
+    <div class="contact-box">
+      <p><strong>Email:</strong> contact@psychologycare.com</p>
+      <p><strong>Phone:</strong> +374 00 000000</p>
+      <p><strong>Location:</strong> Online & In-person sessions available</p>
+
+      <a href="mailto:contact@psychologycare.com" class="cta-btn" style="margin-top:15px; display:inline-block;">
+        Send Email
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    © 2026 Psychology Services. All rights reserved.
+  </footer>
+
+</body>
+</html>
