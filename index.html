@@ -1,502 +1,430 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MindEase Psychology Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Serenity Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ================= ROOT BRAND (UPDATED TO EARTHY TONES LIKE IMG_7727.jpg) ================= */
+:root{
+  --primary: #4a5d4e;      /* Warm Sage/Olive Green */
+  --secondary: #c2a68f;    /* Muted Clay/Beige */
+  --dark: #2c2520;         /* Deep Earth Brown */
+  --text: #423934;         /* Soft Charcoal Brown */
+  --muted: #7a7069;        /* Muted Taupe */
+  --bg: #f9f6f0;           /* Soft Cream Warm Background */
+  --card-bg: #ffffff;
+}
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height: 1.6;
+}
 
-  <style>
-    /* =========================
-       GLOBAL STYLES
-    ========================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* ================= NAVIGATION & LOGO ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--dark);
+  font-weight:800;
+  font-size: 20px;
+}
+.logo-icon{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background: var(--primary);
+  color: white;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* ================= HERO (SPLIT LAYOUT WITH CLEAR IMAGE) ================= */
+.hero{
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 80vh;
+}
+.hero-content{
+  max-width:550px;
+}
+.hero h1{
+  font-size:56px;
+  font-weight:800;
+  letter-spacing:-1.5px;
+  color: var(--dark);
+  line-height: 1.1;
+}
+.hero p{
+  margin-top:20px;
+  font-size:18px;
+  color: var(--muted);
+}
+.hero-image-container {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+}
+.hero-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8fbff;
-      color: #2c3e50;
-      line-height: 1.6;
-    }
+/* ================= BUTTONS ================= */
+.btn{
+  margin-top:30px;
+  display:inline-block;
+  padding:16px 34px;
+  border-radius:14px;
+  font-weight:700;
+  color:white;
+  text-decoration:none;
+  background: var(--primary);
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(74, 93, 78, 0.2);
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow: 0 6px 20px rgba(74, 93, 78, 0.3);
+  opacity: 0.95;
+}
 
-    a {
-      text-decoration: none;
-    }
+/* ================= STATS ================= */
+.stats{
+  margin-top:45px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.stat{
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0,0,0,0.03);
+  backdrop-filter:blur(10px);
+  padding:15px 25px;
+  border-radius:14px;
+  flex: 1;
+  min-width:140px;
+}
+.stat h2{
+  font-size:24px;
+  color: var(--dark);
+  font-weight: 800;
+}
+.stat p{
+  font-size:13px;
+  margin-top: 2px;
+  color: var(--muted);
+}
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
+/* ================= SECTIONS ================= */
+.section{
+  padding:100px 40px;
+  max-width:1300px;
+  margin:auto;
+}
+.section-title {
+  font-size:36px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  margin-bottom: 45px;
+}
+.text-center {
+  text-align: center;
+}
 
-    section {
-      padding: 90px 0;
-    }
+/* ================= SAFETY SECTION (NEW FEATURE) ================= */
+.safety-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.safety-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+}
+.safety-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.safety-item h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.safety-item h4::before {
+  content: "✓";
+  color: var(--secondary);
+  font-weight: 800;
+}
+.safety-item p {
+  color: var(--muted);
+  font-size: 15px;
+  padding-left: 22px;
+}
 
-    h1, h2, h3 {
-      font-weight: 600;
-    }
+/* ================= GRID & CARDS ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.card{
+  background: var(--card-bg);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.02);
+  transition:0.3s;
+  border: 1px solid rgba(0,0,0,0.01);
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.05);
+}
+.card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom: 15px;
+}
+.card h3 {
+  font-weight: 700;
+  color: var(--dark);
+}
+.small{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:4px;
+}
 
-    p {
-      color: #5f6b7a;
-    }
+/* ================= CONTACT BUTTON ================= */
+.contact-btn{
+  margin-top:20px;
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:12px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.3s;
+}
+.contact-btn:hover{
+  transform:translateY(-3px);
+  opacity: 0.9px;
+}
 
-    /* =========================
-       HEADER / NAVBAR
-    ========================== */
-    header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5eef7;
-      z-index: 1000;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #4b7bec;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
-
-    .nav-links a {
-      color: #2c3e50;
-      font-weight: 500;
-      transition: 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #4b7bec;
-    }
-
-    /* =========================
-       HERO SECTION
-    ========================== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #eef5ff, #f9fcff);
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      gap: 50px;
-    }
-
-    .hero-text h1 {
-      font-size: 3.5rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: #1e2a38;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      margin-bottom: 35px;
-      max-width: 500px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #4b7bec;
-      color: white;
-      padding: 14px 30px;
-      border-radius: 50px;
-      font-weight: 500;
-      transition: 0.3s ease;
-      box-shadow: 0 10px 25px rgba(75,123,236,0.2);
-    }
-
-    .btn:hover {
-      background: #3867d6;
-      transform: translateY(-3px);
-    }
-
-    .hero-image {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-card {
-      width: 100%;
-      max-width: 450px;
-      background: white;
-      border-radius: 25px;
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-    }
-
-    .hero-card h3 {
-      margin-bottom: 15px;
-      color: #4b7bec;
-    }
-
-    .hero-card p {
-      margin-bottom: 20px;
-    }
-
-    .mini-box {
-      background: #f4f8ff;
-      padding: 15px;
-      border-radius: 15px;
-      margin-bottom: 15px;
-      transition: 0.3s ease;
-    }
-
-    .mini-box:hover {
-      transform: translateY(-5px);
-      background: #eaf2ff;
-    }
-
-    /* =========================
-       ABOUT SECTION
-    ========================== */
-    .about {
-      background: white;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      color: #1e2a38;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about-box {
-      background: #f5f9ff;
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
-
-    /* =========================
-       FEATURES SECTION
-    ========================== */
-    .features {
-      background: #f8fbff;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    .feature-card {
-      background: white;
-      padding: 35px;
-      border-radius: 20px;
-      transition: 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-
-    .feature-card h3 {
-      margin-bottom: 15px;
-      color: #4b7bec;
-    }
-
-    /* =========================
-       CONTACT SECTION
-    ========================== */
-    .contact {
-      background: white;
-    }
-
-    .contact-box {
-      max-width: 700px;
-      margin: auto;
-      background: #f5f9ff;
-      padding: 50px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    }
-
-    .contact-box h2 {
-      margin-bottom: 20px;
-    }
-
-    .contact-info {
-      margin-top: 25px;
-    }
-
-    .contact-info p {
-      margin: 10px 0;
-      font-size: 1rem;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-    footer {
-      background: #eef5ff;
-      text-align: center;
-      padding: 25px 0;
-      color: #5f6b7a;
-      font-size: 0.95rem;
-    }
-
-    /* =========================
-       RESPONSIVE DESIGN
-    ========================== */
-    @media (max-width: 900px) {
-      .hero-content,
-      .about-content,
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .hero-text p {
-        margin: 0 auto 35px;
-      }
-
-      .hero-text h1 {
-        font-size: 2.7rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-text h1 {
-        font-size: 2.2rem;
-      }
-
-      .section-title h2 {
-        font-size: 2rem;
-      }
-
-      .hero-card,
-      .contact-box,
-      .about-box,
-      .feature-card {
-        padding: 25px;
-      }
-    }
-  </style>
+/* ================= RESPONSIVE ================= */
+@media(max-width:992px){
+  .hero, .safety-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-image-container {
+    min-height: 350px;
+    grid-row: 1; /* Puts image on top for mobile views */
+  }
+  .safety-img {
+    height: 350px;
+  }
+}
+@media(max-width:768px){
+  .hero h1{font-size:38px;}
+  .navbar { padding: 20px; }
+  .section { padding: 60px 20px; }
+}
+</style>
 </head>
-
 <body>
 
-  <!-- =========================
-       HEADER / NAVIGATION
-  ========================== -->
-  <header>
-    <div class="container navbar">
-      <div class="logo">MindEase</div>
+<!-- ================= NAVIGATION ================= -->
+<nav class="navbar">
+  <div class="logo">
+    <div class="logo-icon">◈</div>
+    Serenity Clinic
+  </div>
+</nav>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#features">Benefits</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- =========================
-       HERO SECTION
-  ========================== -->
-  <section class="hero">
-    <div class="container hero-content">
-
-      <!-- Left Hero Text -->
-      <div class="hero-text">
-        <h1>Your Mental Wellness Matters</h1>
-        <p>
-          Professional psychology services designed to help you find balance,
-          reduce stress, and improve emotional well-being in a safe and supportive environment.
-        </p>
-
-        <a href="#contact" class="btn">Book a Consultation</a>
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Find Inner Peace</h1>
+    <p>Clinical psychology support for emotional balance, healing, and long-term mental clarity.</p>
+    <a href="#contact" class="btn">Book Session</a>
+    
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat">
+        <h2>12,500+</h2>
+        <p>Clients served</p>
       </div>
-
-      <!-- Right Hero Card -->
-      <div class="hero-image">
-        <div class="hero-card">
-          <h3>Why Choose MindEase?</h3>
-
-          <div class="mini-box">
-            <strong>✔ Personalized Therapy</strong>
-            <p>Tailored sessions that focus on your individual needs and goals.</p>
-          </div>
-
-          <div class="mini-box">
-            <strong>✔ Online & In-Person</strong>
-            <p>Flexible appointments designed for your lifestyle and comfort.</p>
-          </div>
-
-          <div class="mini-box">
-            <strong>✔ Trusted Professionals</strong>
-            <p>Experienced psychologists dedicated to helping you thrive.</p>
-          </div>
-        </div>
+      <div class="stat">
+        <h2>94%</h2>
+        <p>Feel improvement</p>
       </div>
-
-    </div>
-  </section>
-
-  <!-- =========================
-       ABOUT SECTION
-  ========================== -->
-  <section class="about" id="about">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>About Us</h2>
-        <p>
-          Helping people build healthier minds, stronger relationships, and better lives.
-        </p>
-      </div>
-
-      <div class="about-content">
-
-        <div class="about-box">
-          <h3>Compassionate Care</h3>
-          <p>
-            At MindEase, we believe mental health is essential to overall wellness.
-            Our team provides compassionate psychological support for anxiety, stress,
-            personal growth, and emotional healing.
-          </p>
-        </div>
-
-        <div class="about-box">
-          <h3>Modern Therapy Approach</h3>
-          <p>
-            We combine evidence-based therapy methods with a warm, human-centered approach.
-            Every client receives guidance tailored to their personal journey.
-          </p>
-        </div>
-
+      <div class="stat">
+        <h2>18 Years</h2>
+        <p>Clinic experience</p>
       </div>
     </div>
-  </section>
+  </div>
+  
+  <!-- CLEAR BANNER PICTURE BLOCK (Inspired by IMG_7727.jpg) -->
+  <div class="hero-image-container">
+    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Serene therapeutic environment"/>
+  </div>
+</header>
 
-  <!-- =========================
-       FEATURES / BENEFITS SECTION
-  ========================== -->
-  <section class="features" id="features">
-    <div class="container">
+<!-- ================= ABOUT ================= -->
+<section class="section">
+  <h2 class="section-title text-center">About Our Clinic</h2>
+  <p style="max-width:800px;margin:auto;text-align:center;color:var(--muted);line-height:1.8;font-size:17px;">
+    Serenity Clinic is a modern psychological care center focused on emotional healing, anxiety treatment, trauma recovery, and personal growth.  
+    We combine clinical expertise with mindfulness-based therapy to provide long-term mental wellness solutions in a safe, confidential environment.
+  </p>
+</section>
 
-      <div class="section-title">
-        <h2>Benefits of Our Services</h2>
-        <p>
-          Designed to support your emotional well-being and long-term growth.
-        </p>
-      </div>
-
-      <div class="feature-grid">
-
-        <div class="feature-card">
-          <h3>Stress Management</h3>
-          <p>
-            Learn practical strategies to manage daily stress and improve emotional balance.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <h3>Improved Relationships</h3>
-          <p>
-            Build stronger communication skills and healthier personal connections.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <h3>Personal Growth</h3>
-          <p>
-            Gain confidence, self-awareness, and tools to achieve your goals.
-          </p>
-        </div>
-
-      </div>
+<!-- ================= WHY IT FEELS SAFE SECTION (NEW) ================= -->
+<section class="section" style="background: rgba(255,255,255,0.5); border-top: 1px solid rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.02);">
+  <div class="safety-split">
+    <div>
+      <h2 class="section-title" style="margin-bottom: 25px;">Why It Feels Safe In Our Center</h2>
+      <p style="color: var(--muted); margin-bottom: 35px; font-size: 16px;">Your peace of mind is our highest priority. From your first step into our clinic to your private sessions, every detail is engineered to ensure a secure, unhurried, and deeply supportive therapeutic journey.</p>
+      
+      <ul class="safety-list">
+        <li class="safety-item">
+          <h4>Strict Clinical Confidentiality</h4>
+          <p>Your privacy is absolute. All sessions, notes, and records are secured behind strict healthcare-grade privacy standards.</p>
+        </li>
+        <li class="safety-item">
+          <h4>Warm, Non-Judgmental Space</h4>
+          <p>Our rooms are designed using calming, organic interior choices to drastically reduce clinical anxiety and promote deep reflection.</p>
+        </li>
+        <li class="safety-item">
+          <h4>Licensed Medical Experts</h4>
+          <p>Every specialist is fully accredited with years of hospital and clinical trial experience, matching you with validated care techniques.</p>
+        </li>
+      </ul>
     </div>
-  </section>
-
-  <!-- =========================
-       CONTACT SECTION
-  ========================== -->
-  <section class="contact" id="contact">
-    <div class="container">
-
-      <div class="contact-box">
-        <h2>Get In Touch</h2>
-
-        <p>
-          Ready to begin your journey toward better mental health?
-          Reach out today and schedule your first consultation.
-        </p>
-
-        <a href="mailto:hello@mindease.com" class="btn">
-          Contact Us
-        </a>
-
-        <div class="contact-info">
-          <p>Email: hello@mindease.com</p>
-          <p>Phone: +1 (555) 123-4567</p>
-          <p>Available Monday - Friday</p>
-        </div>
-      </div>
-
+    <div>
+      <!-- DEDICATED SAFETY IMAGE -->
+      <img class="safety-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Warm therapeutic space layout"/>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer>
-    <div class="container">
-      <p>© 2026 MindEase Psychology Services. All rights reserved.</p>
+<!-- ================= PSYCHOLOGISTS ================= -->
+<section class="section">
+  <h2 class="section-title text-center">Our Specialists</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. Sarah Mitchell</h3>
+      <p class="small">Clinical Psychologist</p>
+      <p class="small">12 years experience</p>
+      <p class="small">Mon–Thu 10:00–18:00</p>
     </div>
-  </footer>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. James Carter</h3>
+      <p class="small">CBT Specialist</p>
+      <p class="small">9 years experience</p>
+      <p class="small">Mon–Fri 09:00–17:00</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. Emily Brown</h3>
+      <p class="small">Mindfulness Expert</p>
+      <p class="small">8 years experience</p>
+      <p class="small">Tue–Sat 11:00–19:00</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542190891-2093d38760f2?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. Michael Lee</h3>
+      <p class="small">Family Therapist</p>
+      <p class="small">15 years experience</p>
+      <p class="small">Mon–Wed 10:00–16:00</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. Anna Novak</h3>
+      <p class="small">Trauma Specialist</p>
+      <p class="small">10 years experience</p>
+      <p class="small">Thu–Sun 12:00–20:00</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. David Kim</h3>
+      <p class="small">Anxiety Expert</p>
+      <p class="small">11 years experience</p>
+      <p class="small">Mon–Fri 08:00–15:00</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. Olivia Parker</h3>
+      <p class="small">Behavioral Therapist</p>
+      <p class="small">7 years experience</p>
+      <p class="small">Mon–Thu 09:00–16:00</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80"/>
+      <h3>Dr. Noah Williams</h3>
+      <p class="small">Stress Management</p>
+      <p class="small">13 years experience</p>
+      <p class="small">Tue–Fri 10:00–18:00</p>
+    </div>
+  </div>
+</section>
 
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <h2 class="section-title text-center">Contact Us</h2>
+  <div class="card" style="max-width:500px;margin:auto;text-align:center; padding: 40px 20px;">
+    <p style="margin-bottom: 8px;"><b>Email:</b> hello@serenity.com</p>
+    <p style="margin-bottom: 8px;"><b>Phone:</b> +374 00 000000</p>
+    <p style="margin-bottom: 8px;"><b>Mode:</b> Online & In-person</p>
+    <a class="contact-btn" href="mailto:hello@serenity.com">Book Session</a>
+  </div>
+</section>
 </body>
 </html>
