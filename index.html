@@ -1,252 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Psychology Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Serenity Psychology Services</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    /* =========================
-       GLOBAL STYLES
-    ========================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+<style>
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-    body {
-      background: #f7f9fc;
-      color: #1f2a37;
-      line-height: 1.6;
-    }
+body {
+  background: #f6f8fc;
+  color: #1f2937;
+}
 
-    a {
-      text-decoration: none;
-    }
+/* reusable container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
 
-    /* =========================
-       HERO SECTION
-    ========================= */
-    .hero {
-      background: linear-gradient(135deg, #e8f0ff, #f7f9fc);
-      padding: 100px 20px;
-      text-align: center;
-    }
+/* =========================
+   HERO SECTION (PREMIUM)
+========================= */
+.hero {
+  height: 90vh;
+  background: url("https://images.unsplash.com/photo-1527137342181-19aab11a8ee8") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
 
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+}
 
-    .hero p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      color: #4b5563;
-    }
+.hero-content {
+  position: relative;
+  max-width: 700px;
+}
 
-    .cta-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #4f46e5;
-      color: #fff;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      font-weight: 600;
-    }
+.hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
 
-    .cta-btn:hover {
-      background: #3730a3;
-      transform: translateY(-2px);
-    }
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
 
-    /* =========================
-       SECTION CONTAINER
-    ========================= */
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-weight: 600;
+}
 
-    h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 40px;
-    }
+.btn:hover {
+  background: #4f46e5;
+  transform: translateY(-3px);
+}
 
-    /* =========================
-       ABOUT SECTION
-    ========================= */
-    .about p {
-      text-align: center;
-      max-width: 750px;
-      margin: auto;
-      color: #4b5563;
-    }
+/* =========================
+   SECTION TITLES
+========================= */
+.section {
+  padding: 90px 0;
+}
 
-    /* =========================
-       FEATURES SECTION
-    ========================= */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+.section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
 
-    .feature-card {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      transition: 0.3s ease;
-    }
+/* =========================
+   ABOUT
+========================= */
+.about {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  color: #4b5563;
+  font-size: 17px;
+}
 
-    .feature-card:hover {
-      transform: translateY(-5px);
-    }
+/* =========================
+   SERVICES
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-    .feature-card h3 {
-      margin-bottom: 10px;
-      color: #111827;
-    }
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
 
-    .feature-card p {
-      color: #6b7280;
-      font-size: 14px;
-    }
+.card:hover {
+  transform: translateY(-8px);
+}
 
-    /* =========================
-       CONTACT SECTION
-    ========================= */
-    .contact {
-      text-align: center;
-    }
+.card h3 {
+  margin-bottom: 10px;
+}
 
-    .contact-box {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      max-width: 500px;
-      margin: auto;
-    }
+.card p {
+  color: #6b7280;
+}
 
-    .contact-box p {
-      margin-bottom: 10px;
-      color: #4b5563;
-    }
+/* icons */
+.icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-    .contact-box strong {
-      color: #111827;
-    }
+/* =========================
+   TEAM
+========================= */
+.team-card img {
+  width: 100%;
+  border-radius: 14px;
+  height: 250px;
+  object-fit: cover;
+}
 
-    /* =========================
-       FOOTER
-    ========================= */
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      color: #6b7280;
-    }
+.team-card h3 {
+  margin-top: 10px;
+}
 
-    /* =========================
-       RESPONSIVE DESIGN
-    ========================= */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 34px;
-      }
+/* =========================
+   TESTIMONIALS
+========================= */
+.testimonial {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
 
-      .hero p {
-        font-size: 16px;
-      }
-    }
-  </style>
+.testimonial p {
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* =========================
+   PROCESS STEPS
+========================= */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  background: #eef2ff;
+  padding: 25px;
+  border-radius: 14px;
+}
+
+.step span {
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  text-align: center;
+}
+
+.contact-box {
+  background: #fff;
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #6b7280;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:768px){
+  .hero h1 { font-size: 34px; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HERO SECTION
-  ========================== -->
-  <header class="hero">
-    <h1>Find Balance & Clarity</h1>
-    <p>Professional psychology services designed to help you improve your mental well-being, reduce stress, and build a healthier mindset.</p>
-    <a href="#contact" class="cta-btn">Book a Consultation</a>
-  </header>
+<!-- ========================= HERO ========================= -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Serenity Psychology</h1>
+    <p>Modern mental health support for clarity, balance, and emotional well-being.</p>
+    <a href="#contact" class="btn">Book Session</a>
+  </div>
+</header>
 
-  <!-- =========================
-       ABOUT SECTION
-  ========================== -->
-  <section class="about">
+<!-- ========================= ABOUT ========================= -->
+<section class="section">
+  <div class="container">
     <h2>About Us</h2>
-    <p>
-      We provide supportive, confidential, and evidence-based psychology services. 
-      Our mission is to help individuals understand themselves better, overcome challenges, 
-      and build emotional resilience in a safe environment.
+    <p class="about">
+      We are a team of licensed psychology professionals dedicated to helping individuals overcome stress, anxiety, and emotional challenges through modern, evidence-based therapy approaches.
     </p>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================
-       FEATURES SECTION
-  ========================== -->
-  <section>
+<!-- ========================= SERVICES ========================= -->
+<section class="section">
+  <div class="container">
     <h2>Our Services</h2>
 
-    <div class="features">
-      <div class="feature-card">
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🧠</div>
         <h3>Individual Therapy</h3>
-        <p>Personal sessions tailored to your emotional and mental health needs.</p>
+        <p>Personalized one-on-one sessions tailored to your needs.</p>
       </div>
 
-      <div class="feature-card">
-        <h3>Stress Management</h3>
-        <p>Learn practical techniques to reduce anxiety and improve daily focus.</p>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>Couples Therapy</h3>
+        <p>Improve communication and rebuild emotional connection.</p>
       </div>
 
-      <div class="feature-card">
-        <h3>Relationship Support</h3>
-        <p>Improve communication and strengthen your relationships.</p>
+      <div class="card">
+        <div class="icon">🌿</div>
+        <h3>Stress Relief</h3>
+        <p>Practical techniques for anxiety and burnout management.</p>
       </div>
 
-      <div class="feature-card">
-        <h3>Personal Growth</h3>
-        <p>Develop self-awareness and build a more confident mindset.</p>
+      <div class="card">
+        <div class="icon">🧘</div>
+        <h3>Mindfulness Coaching</h3>
+        <p>Learn how to stay present and mentally balanced.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================
-       CONTACT SECTION
-  ========================== -->
-  <section class="contact" id="contact">
-    <h2>Contact</h2>
+<!-- ========================= TEAM ========================= -->
+<section class="section">
+  <div class="container">
+    <h2>Our Psychologists</h2>
+
+    <div class="grid">
+      <div class="card team-card">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2" />
+        <h3>Dr. Sarah Mitchell</h3>
+        <p>Clinical Psychologist</p>
+      </div>
+
+      <div class="card team-card">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" />
+        <h3>Dr. James Carter</h3>
+        <p>Therapy Specialist</p>
+      </div>
+
+      <div class="card team-card">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f" />
+        <h3>Dr. Emily Brown</h3>
+        <p>Mindfulness Expert</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PROCESS ========================= -->
+<section class="section">
+  <div class="container">
+    <h2>How It Works</h2>
+
+    <div class="steps">
+      <div class="step">
+        <span>01</span>
+        <h3>Book Session</h3>
+        <p>Choose a time that works for you.</p>
+      </div>
+
+      <div class="step">
+        <span>02</span>
+        <h3>Consultation</h3>
+        <p>We understand your needs and goals.</p>
+      </div>
+
+      <div class="step">
+        <span>03</span>
+        <h3>Therapy Plan</h3>
+        <p>We create a personalized support plan.</p>
+      </div>
+
+      <div class="step">
+        <span>04</span>
+        <h3>Progress</h3>
+        <p>Track improvement and emotional growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= TESTIMONIALS ========================= -->
+<section class="section">
+  <div class="container">
+    <h2>What Clients Say</h2>
+
+    <div class="grid">
+      <div class="testimonial">
+        <p>“This therapy completely changed my life. I feel calm and in control again.”</p>
+      </div>
+
+      <div class="testimonial">
+        <p>“Professional and supportive team. Highly recommended.”</p>
+      </div>
+
+      <div class="testimonial">
+        <p>“I finally understand my emotions and how to manage them.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CONTACT ========================= -->
+<section class="section" id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
 
     <div class="contact-box">
-      <p><strong>Email:</strong> contact@psychologycare.com</p>
+      <p><strong>Email:</strong> hello@serenity.com</p>
       <p><strong>Phone:</strong> +374 00 000000</p>
-      <p><strong>Location:</strong> Online & In-person sessions available</p>
-
-      <a href="mailto:contact@psychologycare.com" class="cta-btn" style="margin-top:15px; display:inline-block;">
-        Send Email
-      </a>
+      <p><strong>Available:</strong> Online & In-person</p>
+      <br>
+      <a href="mailto:hello@serenity.com" class="btn">Send Message</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer>
-    © 2026 Psychology Services. All rights reserved.
-  </footer>
+<!-- ========================= FOOTER ========================= -->
+<footer>
+  © 2026 Serenity Psychology Services. All rights reserved.
+</footer>
 
 </body>
 </html>
