@@ -26,7 +26,7 @@ body {
 }
 
 /* =========================
-   HERO VIDEO (PREMIUM)
+   HERO VIDEO
 ========================= */
 .hero {
   position: relative;
@@ -39,7 +39,6 @@ body {
   overflow: hidden;
 }
 
-/* VIDEO BACKGROUND */
 .hero video {
   position: absolute;
   inset: 0;
@@ -50,7 +49,6 @@ body {
   filter: brightness(0.65) contrast(1.1);
 }
 
-/* OVERLAY FOR APPLE-STYLE READABILITY */
 .hero::before {
   content: "";
   position: absolute;
@@ -298,11 +296,8 @@ button {
 
 <body>
 
-<!-- =========================
-     HERO VIDEO
-========================= -->
+<!-- HERO -->
 <section class="hero">
-
   <video autoplay muted loop playsinline>
     <source src="https://cdn.coverr.co/videos/coverr-a-woman-talking-to-a-therapist-7317/1080p.mp4" type="video/mp4">
   </video>
@@ -312,21 +307,16 @@ button {
     <p>Confidential therapy designed to help you find clarity, emotional stability, and inner calm.</p>
     <a href="#contact" class="cta">Book Appointment</a>
   </div>
-
 </section>
 
-<!-- =========================
-     STATS
-========================= -->
+<!-- STATS -->
 <section class="stats">
   <div class="glass stat"><h2>3,200+</h2><p>Clients helped</p></div>
   <div class="glass stat"><h2>89%</h2><p>Improved well-being</p></div>
   <div class="glass stat"><h2>12 yrs</h2><p>Experience</p></div>
 </section>
 
-<!-- =========================
-     SERVICES
-========================= -->
+<!-- SERVICES -->
 <section>
   <h2 class="section-title">Clinical Services</h2>
 
@@ -338,9 +328,7 @@ button {
   </div>
 </section>
 
-<!-- =========================
-     PSYCHOLOGISTS
-========================= -->
+<!-- PSYCHOLOGISTS -->
 <section>
   <h2 class="section-title">Specialists</h2>
 
@@ -376,12 +364,32 @@ button {
       </div>
     </div>
 
+    <!-- NEW PSYCHOLOGIST 1 -->
+    <div class="glass profile">
+      <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7"/>
+      <div class="profile-content">
+        <h3>Dr. Marine Khachatryan</h3>
+        <p class="meta">Tue–Sat • 11:00–16:00</p>
+        <p class="price">$65 / session</p>
+        <a class="book-btn" href="#contact">Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- NEW PSYCHOLOGIST 2 -->
+    <div class="glass profile">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"/>
+      <div class="profile-content">
+        <h3>Dr. Narek Avetisyan</h3>
+        <p class="meta">Mon–Fri • 13:00–19:00</p>
+        <p class="price">$75 / session</p>
+        <a class="book-btn" href="#contact">Book Appointment</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- =========================
-     FEEDBACK
-========================= -->
+<!-- FEEDBACK -->
 <section>
   <h2 class="section-title">Client Experiences</h2>
 
@@ -389,12 +397,15 @@ button {
     <div class="glass feedback">“Safe, calm and professional environment.”</div>
     <div class="glass feedback">“Therapy truly changed my mindset.”</div>
     <div class="glass feedback">“Highly recommended clinic.”</div>
+
+    <!-- NEW FEEDBACK -->
+    <div class="glass feedback">“I finally feel emotionally balanced again.”</div>
+    <div class="glass feedback">“The therapists are extremely understanding and professional.”</div>
+
   </div>
 </section>
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 <section id="contact">
   <h2 class="section-title">Start Your Journey</h2>
 
@@ -414,11 +425,8 @@ button {
   </div>
 </section>
 
-<!-- =========================
-     MAP
-========================= -->
+<!-- MAP -->
 <section class="map-section">
-
   <div class="map-title">Our Location</div>
 
   <div class="map-box">
@@ -426,7 +434,6 @@ button {
       src="https://www.google.com/maps?q=Tumanyan%2020,%20Yerevan,%20Armenia&output=embed">
     </iframe>
   </div>
-
 </section>
 
 </body>
