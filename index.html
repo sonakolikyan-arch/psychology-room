@@ -22,10 +22,11 @@
 body {
   background: #f4f6f8;
   color: #1c1c1e;
+  line-height: 1.6;
 }
 
 /* =========================
-   HERO (IMAGE INSTEAD OF VIDEO)
+   HERO VIDEO (PREMIUM)
 ========================= */
 .hero {
   position: relative;
@@ -34,46 +35,48 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
   padding: 120px 20px;
+  overflow: hidden;
 }
 
-/* 🖼️ HERO BACKGROUND IMAGE */
-.hero::before {
-  content: "";
+/* VIDEO BACKGROUND */
+.hero video {
   position: absolute;
   inset: 0;
-  background: url("https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=2000&q=80")
-              center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: -2;
-  filter: brightness(0.75) contrast(1.1);
+  filter: brightness(0.65) contrast(1.1);
 }
 
-/* 🌫️ OVERLAY FOR READABILITY */
-.hero::after {
+/* OVERLAY FOR APPLE-STYLE READABILITY */
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0,0,0,0.35),
-    rgba(255,255,255,0.10)
+    rgba(0,0,0,0.45),
+    rgba(255,255,255,0.15)
   );
   z-index: -1;
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 700;
   color: white;
+  letter-spacing: -1px;
 }
 
 .hero p {
   margin-top: 20px;
   font-size: 18px;
   color: rgba(255,255,255,0.85);
-  max-width: 600px;
-  margin: auto;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta {
@@ -82,7 +85,7 @@ body {
   padding: 14px 30px;
   border-radius: 999px;
   background: white;
-  color: black;
+  color: #111;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
@@ -93,22 +96,178 @@ body {
 }
 
 /* =========================
+   SECTION TITLE
+========================= */
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 80px 0 40px;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+.glass {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================
+   STATS
+========================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 60px auto;
+  width: 92%;
+  max-width: 1150px;
+}
+
+.stat {
+  padding: 25px;
+  text-align: center;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.card {
+  padding: 25px;
+}
+
+/* =========================
+   PSYCHOLOGISTS
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.profile img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.profile-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.meta {
+  color: #5a5f6a;
+  font-size: 14px;
+}
+
+.price {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.book-btn {
+  margin-top: 15px;
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #1c1c1e;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.book-btn:hover {
+  background: #2c2c2e;
+}
+
+/* =========================
+   FEEDBACKS
+========================= */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.feedback {
+  padding: 20px;
+  font-style: italic;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #1c1c1e;
+  color: white;
+  font-weight: 500;
+}
+
+/* =========================
    MAP SECTION
 ========================= */
 .map-section {
-  margin: 80px auto;
+  margin: 90px 0;
   text-align: center;
 }
 
 .map-title {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .map-box {
   width: 92%;
-  max-width: 1100px;
+  max-width: 1150px;
   margin: auto;
   border-radius: 20px;
   overflow: hidden;
@@ -121,26 +280,142 @@ body {
   border: 0;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
 <!-- =========================
-     HERO WITH IMAGE
+     HERO VIDEO
 ========================= -->
 <section class="hero">
 
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-a-woman-talking-to-a-therapist-7317/1080p.mp4" type="video/mp4">
+  </video>
+
   <div>
-    <h1>Modern psychological care</h1>
-    <p>Confidential therapy in a calm, supportive environment designed for healing and clarity.</p>
+    <h1>Modern psychological care for a balanced mind</h1>
+    <p>Confidential therapy designed to help you find clarity, emotional stability, and inner calm.</p>
     <a href="#contact" class="cta">Book Appointment</a>
   </div>
 
 </section>
 
 <!-- =========================
-     MAP SECTION (TUMANYAN 20)
+     STATS
+========================= -->
+<section class="stats">
+  <div class="glass stat"><h2>3,200+</h2><p>Clients helped</p></div>
+  <div class="glass stat"><h2>89%</h2><p>Improved well-being</p></div>
+  <div class="glass stat"><h2>12 yrs</h2><p>Experience</p></div>
+</section>
+
+<!-- =========================
+     SERVICES
+========================= -->
+<section>
+  <h2 class="section-title">Clinical Services</h2>
+
+  <div class="grid">
+    <div class="glass card"><h3>Anxiety Therapy</h3></div>
+    <div class="glass card"><h3>Depression Support</h3></div>
+    <div class="glass card"><h3>Relationship Therapy</h3></div>
+    <div class="glass card"><h3>Trauma Healing</h3></div>
+  </div>
+</section>
+
+<!-- =========================
+     PSYCHOLOGISTS
+========================= -->
+<section>
+  <h2 class="section-title">Specialists</h2>
+
+  <div class="cards">
+
+    <div class="glass profile">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2"/>
+      <div class="profile-content">
+        <h3>Dr. Anna Sargsyan</h3>
+        <p class="meta">Mon–Wed • 10:00–14:00</p>
+        <p class="price">$60 / session</p>
+        <a class="book-btn" href="#contact">Book Appointment</a>
+      </div>
+    </div>
+
+    <div class="glass profile">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"/>
+      <div class="profile-content">
+        <h3>Dr. Lilit Manukyan</h3>
+        <p class="meta">Tue–Fri • 12:00–18:00</p>
+        <p class="price">$70 / session</p>
+        <a class="book-btn" href="#contact">Book Appointment</a>
+      </div>
+    </div>
+
+    <div class="glass profile">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d"/>
+      <div class="profile-content">
+        <h3>Dr. Arman Petrosyan</h3>
+        <p class="meta">Mon–Sat • 09:00–15:00</p>
+        <p class="price">$80 / session</p>
+        <a class="book-btn" href="#contact">Book Appointment</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     FEEDBACK
+========================= -->
+<section>
+  <h2 class="section-title">Client Experiences</h2>
+
+  <div class="feedback-grid">
+    <div class="glass feedback">“Safe, calm and professional environment.”</div>
+    <div class="glass feedback">“Therapy truly changed my mindset.”</div>
+    <div class="glass feedback">“Highly recommended clinic.”</div>
+  </div>
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+<section id="contact">
+  <h2 class="section-title">Start Your Journey</h2>
+
+  <div class="contact-box">
+    <div class="glass card">
+      <p><strong>Email:</strong> care@serenityclinic.com</p>
+      <p><strong>Phone:</strong> +374 00 000 000</p>
+      <p><strong>Location:</strong> Tumanyan 20, Yerevan</p>
+    </div>
+
+    <div>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button>Request Appointment</button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     MAP
 ========================= -->
 <section class="map-section">
 
