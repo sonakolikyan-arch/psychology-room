@@ -10,7 +10,7 @@
 <style>
 
 /* =========================
-   BASE (APPLE-STYLE MINIMAL)
+   BASE
 ========================= */
 * {
   margin: 0;
@@ -22,42 +22,10 @@
 body {
   background: #f4f6f8;
   color: #1c1c1e;
-  line-height: 1.6;
-}
-
-/* soft ambient gradients */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  z-index: -1;
-  filter: blur(100px);
-  opacity: 0.6;
-}
-
-body::before {
-  background: radial-gradient(circle, rgba(120,160,255,0.25), transparent 60%);
-  top: -200px;
-  left: -200px;
-}
-
-body::after {
-  background: radial-gradient(circle, rgba(180,120,255,0.18), transparent 60%);
-  bottom: -200px;
-  right: -200px;
-}
-
-/* layout */
-.container {
-  width: 92%;
-  max-width: 1150px;
-  margin: auto;
 }
 
 /* =========================
-   HERO (VISUAL IMPROVED)
+   HERO VIDEO
 ========================= */
 .hero {
   position: relative;
@@ -66,47 +34,46 @@ body::after {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 120px 20px;
   overflow: hidden;
+  padding: 120px 20px;
 }
 
-.hero img {
+/* VIDEO BACKGROUND */
+.hero video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.60;   /* MORE VISIBLE */
-  filter: saturate(1.15) contrast(1.2);
   z-index: -2;
+  filter: brightness(0.7) contrast(1.1);
 }
 
+/* OVERLAY */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(244,246,248,0.25),
-    rgba(244,246,248,0.55)
+    rgba(0,0,0,0.35),
+    rgba(255,255,255,0.15)
   );
   z-index: -1;
 }
 
 .hero h1 {
-  font-size: 58px;
+  font-size: 56px;
   font-weight: 700;
-  letter-spacing: -1px;
-  max-width: 900px;
+  color: white;
 }
 
 .hero p {
   margin-top: 20px;
   font-size: 18px;
-  color: #5a5f6a;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  margin: auto;
 }
 
 .cta {
@@ -114,202 +81,39 @@ body::after {
   display: inline-block;
   padding: 14px 30px;
   border-radius: 999px;
-  background: #1c1c1e;
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.cta:hover {
-  transform: translateY(-3px);
-  background: #2c2c2e;
-}
-
-/* =========================
-   SECTION TITLE
-========================= */
-.section-title {
-  text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  margin: 80px 0 40px;
-}
-
-/* =========================
-   GLASS CARDS
-========================= */
-.glass {
-  background: rgba(255,255,255,0.65);
-  border: 1px solid rgba(255,255,255,0.4);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: 0.3s ease;
-}
-
-.glass:hover {
-  transform: translateY(-6px);
-}
-
-/* =========================
-   STATS
-========================= */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin: 60px 0;
-}
-
-.stat {
-  padding: 25px;
-  text-align: center;
-}
-
-.stat h2 {
-  font-size: 34px;
-}
-
-/* =========================
-   SERVICES
-========================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  padding: 25px;
-}
-
-/* =========================
-   PSYCHOLOGISTS
-========================= */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-/* psychologist card */
-.profile {
-  overflow: hidden;
-}
-
-/* image */
-.profile img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
-}
-
-/* content */
-.profile-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.profile-content h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.meta {
-  color: #5a5f6a;
-  font-size: 14px;
-}
-
-.price {
-  margin-top: 10px;
-  font-weight: 600;
-}
-
-/* ⭐ NEW BUTTON */
-.book-btn {
-  margin-top: 15px;
-  display: inline-block;
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  background: #1c1c1e;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.book-btn:hover {
-  background: #2c2c2e;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   FEEDBACKS
-========================= */
-.feedback-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.feedback {
-  padding: 20px;
-  font-style: italic;
-  color: #4b4f58;
-}
-
-/* =========================
-   CONTACT
-========================= */
-.contact {
-  margin: 80px 0;
-}
-
-.contact-box {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.08);
-  outline: none;
   background: white;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 14px;
-  background: #1c1c1e;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #2c2c2e;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* =========================
-   RESPONSIVE
+   MAP SECTION
 ========================= */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 36px;
-  }
+.map-section {
+  margin: 80px auto;
+  text-align: center;
+}
 
-  .contact-box {
-    grid-template-columns: 1fr;
-  }
+.map-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.map-box {
+  width: 92%;
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 450px;
+  border: 0;
 }
 
 </style>
@@ -317,107 +121,38 @@ button:hover {
 
 <body>
 
-<!-- HERO -->
+<!-- =========================
+     HERO WITH VIDEO
+========================= -->
 <section class="hero">
 
-  <img src="https://cdn.shopify.com/s/files/1/0767/2279/8744/files/4-psychology-career-options-to-explore.jpg?v=1779881133" />
+  <!-- 🔥 CINEMATIC VIDEO -->
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-a-woman-talking-to-a-therapist-7317/1080p.mp4" type="video/mp4">
+  </video>
 
   <div>
-    <h1>Modern psychological care for a balanced mind</h1>
-    <p>Confidential therapy designed to help you find clarity, emotional stability, and inner calm.</p>
-    <a href="#contact" class="cta">Book Consultation</a>
+    <h1>Modern psychological care</h1>
+    <p>Confidential therapy in a calm, supportive environment designed for healing and clarity.</p>
+    <a href="#contact" class="cta">Book Appointment</a>
   </div>
 
 </section>
 
-<div class="container">
+<!-- =========================
+     MAP SECTION (TUMANYAN 20)
+========================= -->
+<section class="map-section">
 
-<!-- STATS -->
-<section class="stats">
-  <div class="glass stat"><h2>3,200+</h2><p>Clients helped</p></div>
-  <div class="glass stat"><h2>89%</h2><p>Improved well-being</p></div>
-  <div class="glass stat"><h2>12 yrs</h2><p>Experience</p></div>
-</section>
+  <div class="map-title">Our Location</div>
 
-<!-- SERVICES -->
-<section>
-  <h2 class="section-title">Clinical Services</h2>
-  <div class="grid">
-    <div class="glass card"><h3>Anxiety Therapy</h3></div>
-    <div class="glass card"><h3>Depression Support</h3></div>
-    <div class="glass card"><h3>Relationship Therapy</h3></div>
-    <div class="glass card"><h3>Trauma Healing</h3></div>
+  <div class="map-box">
+    <iframe
+      src="https://www.google.com/maps?q=Tumanyan%2020,%20Yerevan,%20Armenia&output=embed">
+    </iframe>
   </div>
+
 </section>
-
-<!-- PSYCHOLOGISTS -->
-<section>
-  <h2 class="section-title">Specialists</h2>
-  <div class="cards">
-
-    <div class="glass profile">
-      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2"/>
-      <div class="profile-content">
-        <h3>Dr. Anna Sargsyan</h3>
-        <p class="meta">Mon–Wed • 10:00–14:00</p>
-        <p class="price">$60 / session</p>
-        <a href="#contact" class="book-btn">Book Appointment</a>
-      </div>
-    </div>
-
-    <div class="glass profile">
-      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"/>
-      <div class="profile-content">
-        <h3>Dr. Lilit Manukyan</h3>
-        <p class="meta">Tue–Fri • 12:00–18:00</p>
-        <p class="price">$70 / session</p>
-        <a href="#contact" class="book-btn">Book Appointment</a>
-      </div>
-    </div>
-
-    <div class="glass profile">
-      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d"/>
-      <div class="profile-content">
-        <h3>Dr. Arman Petrosyan</h3>
-        <p class="meta">Mon–Sat • 09:00–15:00</p>
-        <p class="price">$80 / session</p>
-        <a href="#contact" class="book-btn">Book Appointment</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FEEDBACK -->
-<section>
-  <h2 class="section-title">Client Experiences</h2>
-  <div class="feedback-grid">
-    <div class="glass feedback">“Life-changing support.”</div>
-    <div class="glass feedback">“Very professional therapists.”</div>
-    <div class="glass feedback">“Safe and calming environment.”</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title">Start Your Journey</h2>
-
-  <div class="contact-box">
-    <div class="glass card">
-      <p><strong>Email:</strong> care@serenityclinic.com</p>
-      <p><strong>Phone:</strong> +374 00 000 000</p>
-    </div>
-
-    <div>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <textarea rows="4" placeholder="Message"></textarea>
-      <button>Request Appointment</button>
-    </div>
-  </div>
-</section>
-
-</div>
 
 </body>
 </html>
