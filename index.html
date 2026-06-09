@@ -22,11 +22,10 @@
 body {
   background: #f4f6f8;
   color: #1c1c1e;
-  line-height: 1.6;
 }
 
 /* =========================
-   HERO
+   HERO VIDEO
 ========================= */
 .hero {
   position: relative;
@@ -35,21 +34,11 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 120px 20px;
   overflow: hidden;
+  padding: 120px 20px;
 }
 
-/* 🌿 HERO BACKGROUND IMAGE */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=2000&q=80")
-  center/cover no-repeat;
-  z-index: -3;
-  filter: brightness(0.75) contrast(1.1);
-}
-
-/* 🎬 HERO VIDEO */
+/* VIDEO BACKGROUND */
 .hero video {
   position: absolute;
   inset: 0;
@@ -57,24 +46,24 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -2;
-  filter: brightness(0.65) contrast(1.1);
+  filter: brightness(0.7) contrast(1.1);
 }
 
-/* overlay */
+/* OVERLAY */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.35),
     rgba(255,255,255,0.15)
   );
   z-index: -1;
 }
 
 .hero h1 {
-  font-size: 58px;
+  font-size: 56px;
   font-weight: 700;
   color: white;
 }
@@ -83,7 +72,7 @@ body {
   margin-top: 20px;
   font-size: 18px;
   color: rgba(255,255,255,0.85);
-  max-width: 650px;
+  max-width: 600px;
   margin: auto;
 }
 
@@ -93,139 +82,38 @@ body {
   padding: 14px 30px;
   border-radius: 999px;
   background: white;
-  color: #111;
+  color: black;
   font-weight: 600;
   text-decoration: none;
 }
 
 /* =========================
-   FLOATING CHAT WIDGET
+   MAP SECTION
 ========================= */
-.chat-widget {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 999;
-  font-family: 'Inter', sans-serif;
-}
-
-/* button */
-.chat-button {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #1c1c1e;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-/* hidden chat box */
-.chat-box {
-  position: absolute;
-  bottom: 75px;
-  right: 0;
-  width: 280px;
-  background: white;
-  border-radius: 16px;
-  padding: 15px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: 0.3s ease;
-}
-
-/* show on hover */
-.chat-widget:hover .chat-box {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.chat-box h4 {
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.chat-box p {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.chat-box input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  outline: none;
-}
-
-.chat-box button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #1c1c1e;
-  color: white;
-  cursor: pointer;
-}
-
-/* =========================
-   REST (unchanged)
-========================= */
-.section-title {
+.map-section {
+  margin: 80px auto;
   text-align: center;
-  font-size: 36px;
+}
+
+.map-title {
+  font-size: 32px;
   font-weight: 700;
-  margin: 80px 0 40px;
+  margin-bottom: 30px;
 }
 
-.cards, .grid, .stats, .feedback-grid, .contact-box {
+.map-box {
   width: 92%;
-  max-width: 1150px;
+  max-width: 1100px;
   margin: auto;
-}
-
-/* simple layout */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-
-.glass {
-  background: rgba(255,255,255,0.65);
   border-radius: 20px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-.profile img {
+.map-box iframe {
   width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
-}
-
-.profile-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.book-btn {
-  margin-top: 15px;
-  display: inline-block;
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  background: #1c1c1e;
-  color: white;
-  text-decoration: none;
+  height: 450px;
+  border: 0;
 }
 
 </style>
@@ -234,39 +122,37 @@ body {
 <body>
 
 <!-- =========================
-     HERO
+     HERO WITH VIDEO
 ========================= -->
 <section class="hero">
 
-  <div class="hero-bg"></div>
-
+  <!-- 🔥 CINEMATIC VIDEO -->
   <video autoplay muted loop playsinline>
-    <source src="https://cdn.coverr.co/videos/coverr-a-woman-talking-to-a-therapist-7317/1080p.mp4">
+    <source src="https://cdn.coverr.co/videos/coverr-a-woman-talking-to-a-therapist-7317/1080p.mp4" type="video/mp4">
   </video>
 
   <div>
     <h1>Modern psychological care</h1>
-    <p>Confidential therapy designed for emotional balance and clarity.</p>
-    <a class="cta" href="#contact">Book Appointment</a>
+    <p>Confidential therapy in a calm, supportive environment designed for healing and clarity.</p>
+    <a href="#contact" class="cta">Book Appointment</a>
   </div>
 
 </section>
 
 <!-- =========================
-     FLOATING CHAT WIDGET
+     MAP SECTION (TUMANYAN 20)
 ========================= -->
-<div class="chat-widget">
+<section class="map-section">
 
-  <div class="chat-box">
-    <h4>Chat with a therapist</h4>
-    <p>We usually reply within a few minutes.</p>
-    <input type="text" placeholder="Type your message...">
-    <button>Send</button>
+  <div class="map-title">Our Location</div>
+
+  <div class="map-box">
+    <iframe
+      src="https://www.google.com/maps?q=Tumanyan%2020,%20Yerevan,%20Armenia&output=embed">
+    </iframe>
   </div>
 
-  <div class="chat-button">💬</div>
-
-</div>
+</section>
 
 </body>
 </html>
